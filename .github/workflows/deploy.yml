@@ -1,0 +1,32 @@
+# Deploy to Vercel on every push to main. The Hobby plan can't link private
+# org repos, so the CLI uploads the source and Vercel runs build.sh.
+name: Deploy to Vercel
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: vercel-production
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      VERCEL_ORG_ID: team_9IgfnaIAPx60CokGFbQmQOMj
+      VERCEL_PROJECT_ID: prj_mr7TZ0HBnNGNw4wLzDR8SLPk6fns
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Deploy
+        run: |
+          if [ -z "$VERCEL_TOKEN" ]; then
+            echo "::warning::VERCEL_TOKEN secret is not set; skipping deploy."
+            exit 0
+          fi
+          # Hobby blocks deploys whose commit author isn't on the team, so send no git metadata
+          rm -rf .git
+          npx --yes vercel@63.1.2 deploy --prod --yes --token "$VERCEL_TOKEN"

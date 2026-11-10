@@ -1,0 +1,7 @@
+dist
+.git
+node_modules
+.env
+services_coop_bank
+storage/backups
+vendor

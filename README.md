@@ -117,3 +117,17 @@ A production-ready, white-label website template built for **Services Co-operati
 - [Installation Guide (cPanel & VPS)](INSTALL.md)
 - [Admin CMS User Guide](docs/ADMIN-GUIDE.md)
 - [Entity-Relationship Diagram (ERD)](database/ERD.md)
+
+---
+
+## Static Preview Build (Vercel)
+
+The PHP app can be exported to plain HTML for a read-only preview on Vercel:
+
+```bash
+sh build.sh          # writes the static site to dist/
+```
+
+- `build.sh` runs the app in a **temporary copy** with its own SQLite database (schema + seed), crawls every public route in English and `/ml`, and writes `dist/`. Your development `.env`, database and `vendor/` are not touched.
+- `vercel.json` serves `dist/` with clean URLs; `.github/workflows/deploy.yml` deploys on every push to `main` (needs the `VERCEL_TOKEN` repository secret).
+- It is a **preview only**: forms (contact, service request, feedback, grievance) and search cannot run on a static host and show a notice instead. Run the PHP app (`php -S 127.0.0.1:8088 -t public public/index.php`) for the full site.

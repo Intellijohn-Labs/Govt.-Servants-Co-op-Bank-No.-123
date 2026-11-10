@@ -34,11 +34,9 @@ $crumbs = [
       <div class="card h-100 border-0 shadow-sm rounded-4 p-4">
         <h5 class="fw-bold text-primary mb-3"><i class="fa-solid fa-piggy-bank me-2"></i> <?= __('Products & Services', 'സേവനങ്ങൾ') ?></h5>
         <ul class="list-unstyled mb-0">
-          <li class="mb-2"><a href="<?= url('/services') ?>"><?= __('Services Hub Overview', 'സേവനങ്ങൾ') ?></a></li>
-          <li class="mb-2"><a href="<?= url('/products/gold-loan') ?>"><?= __('gold_loan') ?></a></li>
-          <li class="mb-2"><a href="<?= url('/products/housing-loan') ?>"><?= __('housing_loan') ?></a></li>
-          <li class="mb-2"><a href="<?= url('/products/fixed-deposit') ?>"><?= __('fixed_deposit') ?></a></li>
-          <li class="mb-2"><a href="<?= url('/products/recurring-deposit') ?>"><?= __('recurring_deposit') ?></a></li>
+          <li class="mb-2"><a href="<?= url('/welfare') ?>"><?= __('Member Services', 'സേവനങ്ങൾ') ?></a></li>
+          <li class="mb-2"><a href="<?= url('/interest-rates') ?>#loan-rates"><?= __('Loan Interest Rates', 'വായ്പാ പലിശ നിരക്കുകൾ') ?></a></li>
+          <li class="mb-2"><a href="<?= url('/service-request') ?>"><?= __('Apply for a Loan', 'വായ്പയ്ക്ക് അപേക്ഷിക്കുക') ?></a></li>
           <li class="mb-2"><a href="<?= url('/interest-rates') ?>"><?= __('nav_rates') ?></a></li>
           <li class="mb-2"><a href="<?= url('/calculators') ?>"><?= __('nav_calculators') ?></a></li>
         </ul>

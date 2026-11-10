@@ -175,7 +175,10 @@ class I18n
      */
     public static function hreflangTags(string $path = '/'): string
     {
-        $cleanPath = '/' . ltrim($path, '/');
+        // Strip query string and any existing language prefix so /ml/about doesn't become /ml/ml/about
+        $cleanPath = '/' . ltrim((string)(parse_url($path, PHP_URL_PATH) ?? '/'), '/');
+        $cleanPath = preg_replace('#^/(ml|en)(?=/|$)#', '', $cleanPath);
+        $cleanPath = ($cleanPath === '' || $cleanPath === null) ? '/' : $cleanPath;
         $baseUrl = rtrim($_ENV['APP_URL'] ?? '', '/');
 
         $html = '<link rel="alternate" hreflang="en" href="' . htmlspecialchars($baseUrl . $cleanPath, ENT_QUOTES, 'UTF-8') . '" />' . "\n";
