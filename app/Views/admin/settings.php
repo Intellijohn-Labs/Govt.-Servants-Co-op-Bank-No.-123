@@ -9,6 +9,7 @@
   <div class="col-lg-7">
     <div class="card border-0 shadow-sm p-4">
       <h5 class="fw-bold mb-3 text-dark">Institutional Legal Profile</h5>
+      <div class="table-responsive">
       <table class="table table-bordered small">
         <tbody>
           <tr>
@@ -41,6 +42,7 @@
           </tr>
         </tbody>
       </table>
+      </div>
     </div>
   </div>
 

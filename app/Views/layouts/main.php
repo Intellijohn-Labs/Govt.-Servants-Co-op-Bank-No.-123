@@ -2,8 +2,9 @@
 <html lang="<?= e(current_lang()) ?>" dir="ltr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script>document.documentElement.classList.add('js');</script>
   <script>
     /* First-visit splash: shown once per browser session, never with reduced motion */
     try {

@@ -105,3 +105,5 @@ $crumbs = [
     </div>
   </div>
 </div>
+
+<?= $this->partial('history_timeline', ['compact' => false]) ?>

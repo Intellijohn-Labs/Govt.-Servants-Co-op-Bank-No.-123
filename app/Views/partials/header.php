@@ -22,24 +22,24 @@ $memberServiceLinks = [
 ?>
 <!-- Top Utility Bar -->
 <div class="top-bar">
-  <div class="container d-flex justify-content-between align-items-center flex-wrap gap-2">
-    <div class="d-flex align-items-center flex-wrap gap-2 gap-lg-3">
+  <div class="container d-flex flex-column flex-md-row justify-content-md-between align-items-stretch align-items-md-center gap-2">
+    <div class="top-contact d-flex flex-column flex-md-row align-items-start align-items-md-center flex-wrap gap-1 gap-md-2 gap-lg-3">
       <?php if (!empty($helpline)): ?>
         <span class="util-item"><i class="fa-solid fa-headset"></i> <?= __('Helpline', 'ഹെൽപ്പ്‌ലൈൻ') ?>: <a href="tel:<?= e(preg_replace('/\s+/', '', $helpline)) ?>"><?= e($helpline) ?></a></span>
       <?php endif; ?>
       <?php if (!empty(setting('contact.email'))): ?>
         <span class="util-sep d-none d-md-inline-block"></span>
-        <span class="util-item d-none d-md-inline-flex"><i class="fa-solid fa-envelope"></i> <a href="mailto:<?= e(setting('contact.email')) ?>"><?= e(setting('contact.email')) ?></a></span>
+        <span class="util-item"><i class="fa-solid fa-envelope"></i> <a href="mailto:<?= e(setting('contact.email')) ?>"><?= e(setting('contact.email')) ?></a></span>
       <?php endif; ?>
       <?php if (!empty($hours)): ?>
         <span class="util-sep d-none d-xxl-inline-block"></span>
-        <span class="util-item d-none d-xxl-inline-flex"><i class="fa-solid fa-clock"></i> <?= e($hours) ?></span>
+        <span class="util-item d-flex d-md-none d-xxl-inline-flex"><i class="fa-solid fa-clock"></i> <?= e($hours) ?></span>
       <?php endif; ?>
       <span class="util-sep d-none d-lg-inline-block"></span>
       <a href="<?= url('/branches') ?>" class="util-item util-link d-none d-lg-inline-flex"><i class="fa-solid fa-location-dot"></i> <?= __('Branch Locator', 'ശാഖ കണ്ടെത്തുക') ?></a>
     </div>
 
-    <div class="d-flex align-items-center gap-2">
+    <div class="top-actions d-flex align-items-center justify-content-between justify-content-md-end gap-2">
       <button type="button" class="btn btn-sm text-white p-0 border-0 me-1" id="searchToggleBtn" aria-label="<?= __('search_placeholder') ?>">
         <i class="fa-solid fa-magnifying-glass"></i>
       </button>
@@ -98,6 +98,7 @@ $memberServiceLinks = [
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="<?= url('/about') ?>"><?= __('nav_who_we_are') ?></a></li>
+            <li><a class="dropdown-item" href="<?= url('/about') ?>#history"><?= __('History & Milestones', 'ചരിത്രവും നാഴികക്കല്ലുകളും') ?></a></li>
             <li><a class="dropdown-item" href="<?= url('/achievements') ?>"><?= __('nav_achievements') ?></a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="<?= url('/legal-framework') ?>"><?= __('nav_legal_framework') ?></a></li>

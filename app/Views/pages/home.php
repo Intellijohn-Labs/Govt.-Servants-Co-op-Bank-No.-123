@@ -9,8 +9,8 @@ $loanEffective = !empty($loanSlabs) ? $loanSlabs[0]['effective_from'] : null;
 <!-- 1. Hero Section -->
 <section class="hero-section text-white">
   <div class="container">
-    <div class="row align-items-center g-5">
-      <div class="col-lg-7">
+    <div class="row align-items-center g-4 g-lg-5">
+      <div class="col-12 col-lg-7">
         <div class="d-flex flex-wrap gap-2 mb-4">
           <span class="trust-chip"><i class="fa-solid fa-certificate" aria-hidden="true"></i> <?= __('Class 1 Bank', 'Class 1 ബാങ്ക്') ?></span>
           <span class="trust-chip"><i class="fa-solid fa-landmark" aria-hidden="true"></i> <?= __('100 Years of Service Legacy', '100 വർഷത്തെ പാരമ്പര്യം') ?></span>
@@ -33,7 +33,7 @@ $loanEffective = !empty($loanSlabs) ? $loanSlabs[0]['effective_from'] : null;
       </div>
 
       <!-- Quick EMI widget -->
-      <div class="col-lg-5">
+      <div class="col-12 col-lg-5">
         <div class="card hero-card border-0 text-dark bg-white p-4">
           <div class="d-flex align-items-center justify-content-between mb-3">
             <h2 class="h5 fw-bold mb-0 text-primary">
@@ -280,6 +280,9 @@ $loanEffective = !empty($loanSlabs) ? $loanSlabs[0]['effective_from'] : null;
     </div>
   </div>
 </section>
+
+<!-- Compact history timeline -->
+<?= $this->partial('history_timeline', ['compact' => true]) ?>
 
 <!-- Intro video -->
 <section id="video" class="py-5" aria-labelledby="video-title">

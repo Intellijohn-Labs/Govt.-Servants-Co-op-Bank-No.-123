@@ -108,3 +108,21 @@ document.addEventListener('DOMContentLoaded', function () {
   else window.addEventListener('load', onReady);
   setTimeout(hide, MAX_MS);
 })();
+
+// Timeline: reveal cards as they scroll into view (content stays visible without JS / on old browsers).
+(function () {
+  var items = document.querySelectorAll('.tl-item, .tl-compact-item');
+  if (!items.length) return;
+  if (!('IntersectionObserver' in window)) {
+    items.forEach(function (el) { el.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+  items.forEach(function (el) { io.observe(el); });
+  // safety net: never leave content hidden
+  setTimeout(function () { items.forEach(function (el) { el.classList.add('in'); }); }, 6000);
+})();

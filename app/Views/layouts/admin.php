@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title><?= !empty($title) ? e($title) . ' | ' : '' ?><?= e(bank_name()) ?> CMS</title>
 
   <!-- Google Fonts: Inter -->

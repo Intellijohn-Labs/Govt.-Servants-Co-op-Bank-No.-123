@@ -40,9 +40,9 @@
   </div>
 
   <!-- Key Institutional Honors -->
-  <div class="row g-4 align-items-center mb-5">
-    <div class="col-lg-6">
-      <div class="pe-lg-4">
+  <div class="row g-4 justify-content-center mb-2">
+    <div class="col-lg-8">
+      <div>
         <div class="badge bg-success-subtle text-success border border-success-subtle px-3 py-2 rounded-pill mb-3">
           <i class="fa-solid fa-certificate me-1"></i> <?= __('Awards & Recognition', 'പുരസ്കാരങ്ങളും അംഗീകാരങ്ങളും') ?>
         </div>
@@ -60,45 +60,7 @@
       </div>
     </div>
 
-    <div class="col-lg-6">
-      <div class="card border-0 shadow-sm p-4 bg-light">
-        <h5 class="fw-bold text-dark mb-3">
-          <i class="fa-solid fa-clock-rotate-left text-primary me-2"></i>
-          <?= is_malayalam() ? 'വളർച്ചാ നാഴികക്കല്ലുകൾ' : 'Historical Milestones' ?>
-        </h5>
-        <div class="border-start border-2 border-primary ps-3 ms-2 py-2">
-          <div class="mb-3">
-            <span class="badge bg-primary">1920</span>
-            <div class="fw-bold text-dark mt-1"><?= __('Founded', 'സ്ഥാപിതം') ?></div>
-            <div class="small text-muted"><?= __('Founded (Malayalam year 1095) by about twenty government employees of Paravur Taluk.', 'പറവൂർ താലൂക്കിലെ ഇരുപതോളം സർക്കാർ ജീവനക്കാർ ചേർന്ന് സ്ഥാപിച്ചു (മലയാള വർഷം 1095).') ?></div>
-          </div>
-          <div class="mb-3">
-            <span class="badge bg-primary">1985</span>
-            <div class="fw-bold text-dark mt-1"><?= __('Upgraded to Class IV', 'ക്ലാസ്സ് IV') ?></div>
-            <div class="small text-muted"><?= __('Upgraded to Class IV on 01/07/1985.', '01/07/1985 മുതൽ ക്ലാസ്സ് IV.') ?></div>
-          </div>
-          <div class="mb-3">
-            <span class="badge bg-primary">2000</span>
-            <div class="fw-bold text-dark mt-1"><?= __('Own building', 'സ്വന്തം കെട്ടിടം') ?></div>
-            <div class="small text-muted"><?= __('Moved to its own building on 31/01/2000.', '31/01/2000 മുതൽ സ്വന്തം കെട്ടിടത്തിൽ പ്രവർത്തനം.') ?></div>
-          </div>
-          <div class="mb-3">
-            <span class="badge bg-primary">2001</span>
-            <div class="fw-bold text-dark mt-1"><?= __('Upgraded to Class II', 'ക്ലാസ്സ് II') ?></div>
-            <div class="small text-muted"><?= __('Upgraded to Class II on 01/03/2001.', '01/03/2001 മുതൽ ക്ലാസ്സ് II.') ?></div>
-          </div>
-          <div class="mb-3">
-            <span class="badge bg-primary">2020-21</span>
-            <div class="fw-bold text-dark mt-1"><?= __('District-level recognition', 'ജില്ലാതല അംഗീകാരം') ?></div>
-            <div class="small text-muted"><?= __('1st and 2nd positions at District level since 2020-21.', '2020-21 വർഷം മുതൽ ജില്ലാതലത്തിൽ ഒന്നും രണ്ടും സ്ഥാനങ്ങൾ.') ?></div>
-          </div>
-          <div>
-            <span class="badge bg-success">Aug 2021</span>
-            <div class="fw-bold text-dark mt-1"><?= __('Class 1 Bank', 'ക്ലാസ്സ് 1 ബാങ്ക്') ?></div>
-            <div class="small text-muted"><?= __('Upgraded to Class 1 from August 2021.', '2021 ആഗസ്റ്റ് മുതൽ ക്ലാസ്സ് 1 ബാങ്ക്.') ?></div>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </div>
+
+<?= $this->partial('history_timeline', ['compact' => false]) ?>
