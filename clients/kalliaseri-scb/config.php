@@ -30,6 +30,13 @@ return [
         'membership_eligibility_ml' => 'പറവൂർ താലൂക്കിലെ സർക്കാർ / അർദ്ധ സർക്കാർ സ്ഥാപനങ്ങളിൽ ജോലിയുള്ളവരും, പറവൂർ താലൂക്കിൽ സ്ഥിരതാമസക്കാരോ അല്ലെങ്കിൽ സ്ഥാവര സ്വത്തുക്കളോ ഉള്ളതുമായ വ്യക്തികൾക്ക്.',
     ],
 
+    // Branding assets (paths relative to /public)
+    'branding' => [
+        'logo' => 'assets/img/logo.png',
+        'favicon' => 'assets/img/favicon.png',
+        'apple_touch_icon' => 'assets/img/apple-touch-icon.png',
+    ],
+
     // Contact & Physical Head Office
     'contact' => [
         'head_office_address_en' => 'Court Complex West, N. Paravur, Ernakulam, Kerala - 683513',

@@ -4,12 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <?php if (!empty(setting('branding.favicon'))): ?>
+  <link rel="icon" type="image/png" href="<?= e(asset(setting('branding.favicon'))) ?>">
+  <link rel="apple-touch-icon" href="<?= e(asset(setting('branding.apple_touch_icon') ?: setting('branding.favicon'))) ?>">
+  <?php endif; ?>
 
   <title><?= !empty($meta_title) ? e($meta_title) . ' | ' : '' ?><?= e(bank_name()) ?></title>
   <meta name="description" content="<?= e($meta_desc ?? setting('legal.verified_legal_name', 'Services Co-operative Bank in Kerala')) ?>">
 
   <!-- Open Graph / Social Meta -->
   <meta property="og:type" content="website">
+  <?php if (!empty(setting('branding.logo'))): ?><meta property="og:image" content="<?= e($app_url . asset(setting('branding.logo'))) ?>"><?php endif; ?>
   <meta property="og:title" content="<?= !empty($meta_title) ? e($meta_title) : e(bank_name()) ?>">
   <meta property="og:description" content="<?= e($meta_desc ?? setting('tagline', '')) ?>">
   <meta property="og:url" content="<?= e($app_url . ($_SERVER['REQUEST_URI'] ?? '/')) ?>">

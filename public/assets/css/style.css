@@ -724,3 +724,16 @@ body > footer { margin-top: auto; }
   html[lang="ml"] .main-navbar .btn-cta { padding: .45rem .8rem; font-size: .82rem; }
   html[lang="ml"] .main-navbar .btn-cta i { display: none; }
 }
+
+/* Logo */
+.brand-logo { width: 48px; height: 48px; object-fit: contain; flex-shrink: 0; }
+.footer-logo { display: grid; place-items: center; width: 56px; height: 56px; background: #fff; border-radius: 50%; padding: 4px; box-shadow: 0 6px 16px -8px rgb(0 0 0 / .6); flex-shrink: 0; }
+.footer-logo img { width: 100%; height: 100%; object-fit: contain; }
+@media (max-width: 575.98px) { .brand-logo { width: 40px; height: 40px; } }
+.brand-logo { width: 58px; height: 58px; }
+@media (min-width: 1200px) { .main-navbar .navbar-brand { max-width: 320px; } .main-navbar .navbar-brand .fs-5 { font-size: .95rem !important; } }
+@media (max-width: 575.98px) { .brand-logo { width: 44px; height: 44px; } }
+
+.help-card a { white-space: nowrap; font-size: .98rem; }
+.help-card a.text-break { white-space: normal; overflow-wrap: anywhere; font-size: .9rem; }
+.footer-brand .fs-5 { font-size: 1rem !important; }

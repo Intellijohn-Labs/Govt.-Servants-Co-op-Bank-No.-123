@@ -12,9 +12,13 @@ $dicgcShown = setting('legal.entity_type') === 'licensed_bank'
     <div class="row g-4 g-xl-5">
 
       <!-- Regulated entity -->
-      <div class="col-lg-4 col-md-12">
+      <div class="col-lg-3 col-md-12">
         <div class="footer-brand">
-          <div class="brand-icon-box"><i class="fa-solid fa-building-columns"></i></div>
+          <?php if (!empty(setting('branding.logo'))): ?>
+            <span class="footer-logo"><img src="<?= e(asset(setting('branding.logo'))) ?>" alt="<?= e(setting('legal.short_name', 'Logo')) ?>" width="52" height="52" loading="lazy"></span>
+          <?php else: ?>
+            <div class="brand-icon-box"><i class="fa-solid fa-building-columns"></i></div>
+          <?php endif; ?>
           <div class="fw-bold text-white fs-5 lh-sm"><?= e(bank_name()) ?></div>
         </div>
         <p class="small opacity-75 mb-3"><?= e(setting('tagline')) ?></p>
@@ -91,7 +95,7 @@ $dicgcShown = setting('legal.entity_type') === 'licensed_bank'
       </div>
 
       <!-- Helpline & grievance -->
-      <div class="col-lg-2 col-md-6">
+      <div class="col-lg-3 col-md-6">
         <h5><?= __('Helpline & Grievance', 'ഹെൽപ്പ്‌ലൈൻ / പരാതി') ?></h5>
         <?php if (!empty($tollFree) || !empty($phone)): ?>
           <div class="help-card">

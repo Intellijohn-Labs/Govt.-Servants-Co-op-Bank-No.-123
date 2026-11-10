@@ -68,9 +68,13 @@ $memberServiceLinks = [
 <nav class="navbar navbar-expand-xl main-navbar sticky-top" aria-label="<?= __('Main navigation', 'പ്രധാന മെനു') ?>">
   <div class="container">
     <a class="navbar-brand d-flex align-items-center gap-2" href="<?= url('/') ?>">
-      <div class="brand-icon-box text-white p-2 d-flex align-items-center justify-content-center" style="width: 44px; height: 44px;">
-        <i class="fa-solid fa-building-columns fa-lg"></i>
-      </div>
+      <?php if (!empty(setting('branding.logo'))): ?>
+        <img src="<?= e(asset(setting('branding.logo'))) ?>" alt="<?= e(setting('legal.short_name', 'Logo')) ?>" class="brand-logo" width="48" height="48">
+      <?php else: ?>
+        <div class="brand-icon-box text-white p-2 d-flex align-items-center justify-content-center" style="width: 44px; height: 44px;">
+          <i class="fa-solid fa-building-columns fa-lg"></i>
+        </div>
+      <?php endif; ?>
       <div>
         <div class="fw-bold fs-5 text-dark lh-sm"><?= e(bank_name()) ?></div>
         <div class="text-muted" style="font-size: 0.72rem;"><?= __('Class 1 Bank', 'ക്ലാസ്സ് 1 ബാങ്ക്') ?> · <?= e(setting('legal.registration_number')) ?></div>

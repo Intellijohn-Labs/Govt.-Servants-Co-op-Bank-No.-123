@@ -3,9 +3,13 @@
     <div class="col-md-6 col-lg-5">
       <div class="card border-0 shadow-lg rounded-4 p-4 p-md-5">
         <div class="text-center mb-4">
-          <div class="brand-icon-box bg-primary text-white rounded p-3 d-inline-flex mb-3">
-            <i class="fa-solid fa-lock fa-2x"></i>
-          </div>
+          <?php if (!empty(setting('branding.logo'))): ?>
+            <img src="<?= e(asset(setting('branding.logo'))) ?>" alt="<?= e(setting('legal.short_name', 'Logo')) ?>" width="72" height="72" class="mb-3">
+          <?php else: ?>
+            <div class="brand-icon-box bg-primary text-white rounded p-3 d-inline-flex mb-3">
+              <i class="fa-solid fa-lock fa-2x"></i>
+            </div>
+          <?php endif; ?>
           <h4 class="fw-bold mb-1"><?= __('Administrative Login', 'അഡ്മിൻ ലോഗിൻ') ?></h4>
           <p class="text-muted small"><?= e(bank_name()) ?> CMS</p>
         </div>
