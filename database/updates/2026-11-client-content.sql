@@ -45,7 +45,7 @@ UPDATE product_rates SET notes_en = '> ₹8L',        notes_ml = '8 ലക്ഷ
 -- ===== Authentic institution details (Govt. Servants' Co-operative Bank Ltd. No. 123, N. Paravur) =====
 UPDATE branches SET code = 'HO-01', name_en = 'Head Office', name_ml = 'ഹെഡ് ഓഫീസ്',
        address_en = 'Court Complex West, N. Paravur, Ernakulam, Kerala - 683513',
-       address_ml = 'കോടതി സമുച്ചയത്തിന് പടിഞ്ഞാറ്, എൻ. പറവൂർ, എറണാകുളം, കേരളം - 683513',
+       address_ml = 'കോടതി സമുച്ചയത്തിന് പടിഞ്ഞാറുവശം, എൻ. പറവൂർ, എറണാകുളം, കേരളം - 683513',
        district = 'Ernakulam', pincode = '683513', phone = '0484-2442693', alternate_phone = NULL,
        email = 'gscb123paravur@gmail.com',
        working_hours_en = 'Monday – Saturday: 9:30 AM – 4:30 PM (Sunday Closed)',

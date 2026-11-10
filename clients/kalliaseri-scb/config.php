@@ -25,12 +25,15 @@ return [
         'ombudsman_name' => '', // not supplied
         'ombudsman_url' => '',
         'domain_obligation_note' => '',
+        // Membership eligibility (verified wording: residence and/or property)
+        'membership_eligibility_en' => 'Persons employed in government / semi-government institutions in Paravur Taluk who have permanent residence and/or immovable property in the taluk.',
+        'membership_eligibility_ml' => 'പറവൂർ താലൂക്കിലെ സർക്കാർ / അർദ്ധ സർക്കാർ സ്ഥാപനങ്ങളിൽ ജോലിയുള്ളവരും, പറവൂർ താലൂക്കിൽ സ്ഥിരതാമസക്കാരോ അല്ലെങ്കിൽ സ്ഥാവര സ്വത്തുക്കളോ ഉള്ളതുമായ വ്യക്തികൾക്ക്.',
     ],
 
     // Contact & Physical Head Office
     'contact' => [
         'head_office_address_en' => 'Court Complex West, N. Paravur, Ernakulam, Kerala - 683513',
-        'head_office_address_ml' => 'കോടതി സമുച്ചയത്തിന് പടിഞ്ഞാറ്, എൻ. പറവൂർ, എറണാകുളം, കേരളം - 683513',
+        'head_office_address_ml' => 'കോടതി സമുച്ചയത്തിന് പടിഞ്ഞാറുവശം, എൻ. പറവൂർ, എറണാകുളം, കേരളം - 683513',
         'primary_phone' => '0484-2442693',
         'secondary_phone' => '',
         'toll_free' => '',

@@ -677,7 +677,7 @@ class SeedData
              WHERE client_slug = ? AND is_head_office = 1",
             [
                 'Court Complex West, N. Paravur, Ernakulam, Kerala - 683513',
-                'കോടതി സമുച്ചയത്തിന് പടിഞ്ഞാറ്, എൻ. പറവൂർ, എറണാകുളം, കേരളം - 683513',
+                'കോടതി സമുച്ചയത്തിന് പടിഞ്ഞാറുവശം, എൻ. പറവൂർ, എറണാകുളം, കേരളം - 683513',
                 $clientSlug,
             ]
         );

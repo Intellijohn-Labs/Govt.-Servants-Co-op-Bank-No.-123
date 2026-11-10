@@ -41,9 +41,14 @@ $crumbs = [
 
         <h4 class="fw-bold text-primary mb-3 mt-4">3. <?= __('Membership & Area of Operation', 'അംഗത്വവും പ്രവർത്തന പരിധിയും') ?></h4>
         <p>
-          <?= is_malayalam()
-            ? 'പറവൂർ താലൂക്കിലെ സർക്കാർ/അർദ്ധ സർക്കാർ സ്ഥാപനങ്ങളിൽ ജോലിയുള്ളതും പറവൂർ താലൂക്കിൽ സ്ഥിരതാമസമോ സ്ഥാവര സ്വത്തുക്കളോ ഉള്ളതുമായ വ്യക്തികൾക്ക് ബാങ്കിൽ അംഗത്വം നൽകുന്നു.'
-            : 'Membership is open to persons employed in government or semi-government institutions in Paravur Taluk who also have permanent residence or immovable property in the taluk.' ?>
+          <?php
+            $elig = is_malayalam() ? setting('legal.membership_eligibility_ml') : setting('legal.membership_eligibility_en');
+            if (!empty($elig)):
+          ?>
+            <?= __('Membership is open to:', 'അംഗത്വം നൽകുന്നത്:') ?> <?= e($elig) ?>
+          <?php else: ?>
+            <?= __('Membership is governed by the bank’s bylaws.', 'അംഗത്വം ബാങ്കിന്റെ ഉപനിയമങ്ങൾക്ക് വിധേയമാണ്.') ?>
+          <?php endif; ?>
         </p>
 
         <h4 class="fw-bold text-primary mb-3 mt-4">4. <?= __('Information Website Disclaimer', 'വെബ്സൈറ്റ് വിവര നിരാകരണം') ?></h4>
