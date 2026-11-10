@@ -80,3 +80,31 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 });
+
+// First-visit splash: keep it for a short minimum so the animation is seen,
+// hide it once the page has loaded (hard cap so a slow CDN can never trap visitors).
+(function () {
+  var splash = document.getElementById('splash');
+  if (!splash) return;
+  var root = document.documentElement;
+  if (!root.classList.contains('has-splash')) {
+    splash.remove();
+    return;
+  }
+  var MIN_MS = 1700, MAX_MS = 5000, started = Date.now(), hidden = false;
+  function hide() {
+    if (hidden) return;
+    hidden = true;
+    splash.classList.add('splash-hide');
+    setTimeout(function () {
+      root.classList.remove('has-splash');
+      splash.remove();
+    }, 700);
+  }
+  function onReady() {
+    setTimeout(hide, Math.max(0, MIN_MS - (Date.now() - started)));
+  }
+  if (document.readyState === 'complete') onReady();
+  else window.addEventListener('load', onReady);
+  setTimeout(hide, MAX_MS);
+})();

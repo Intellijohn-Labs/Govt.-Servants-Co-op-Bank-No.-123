@@ -4,6 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script>
+    /* First-visit splash: shown once per browser session, never with reduced motion */
+    try {
+      if (!sessionStorage.getItem('gscb_splash') && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        sessionStorage.setItem('gscb_splash', '1');
+        document.documentElement.classList.add('has-splash');
+      }
+    } catch (e) {}
+  </script>
   <?php if (!empty(setting('branding.favicon'))): ?>
   <link rel="icon" type="image/png" href="<?= e(asset(setting('branding.favicon'))) ?>">
   <link rel="apple-touch-icon" href="<?= e(asset(setting('branding.apple_touch_icon') ?: setting('branding.favicon'))) ?>">
@@ -62,6 +71,20 @@
   </script>
 </head>
 <body>
+  <!-- First-visit loading splash (only visible when <html> has .has-splash) -->
+  <div id="splash" class="splash" aria-hidden="true">
+    <div class="splash-mark">
+      <span class="splash-ring"></span><span class="splash-ring splash-ring-2"></span>
+      <?php if (!empty(setting('branding.logo'))): ?>
+        <span class="splash-logo"><img src="<?= e(asset(setting('branding.logo'))) ?>" alt="" width="120" height="120"></span>
+      <?php else: ?>
+        <span class="splash-logo"><i class="fa-solid fa-building-columns"></i></span>
+      <?php endif; ?>
+    </div>
+    <div class="splash-name"><?= e(bank_name()) ?></div>
+    <div class="splash-tag"><?= e(setting('tagline')) ?></div>
+    <div class="splash-bar"><i></i></div>
+  </div>
   <!-- WCAG Skip to Main Content Link -->
   <a href="#main-content" class="skip-link"><?= __('Skip to main content', 'പ്രധാന ഉള്ളടക്കത്തിലേക്ക് പോവുക') ?></a>
 
