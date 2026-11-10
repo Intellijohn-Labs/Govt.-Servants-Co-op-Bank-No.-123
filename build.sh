@@ -20,8 +20,12 @@ php -r 'foreach (["pdo_sqlite","mbstring"] as $e) { if (!extension_loaded($e)) {
 WORK=$(mktemp -d)
 SERVER_PID=""
 cleanup() {
-  if [ -n "$SERVER_PID" ]; then kill "$SERVER_PID" 2>/dev/null; wait "$SERVER_PID" 2>/dev/null; fi
-  rm -rf "$WORK"
+  # Never let the killed server's status (143 = SIGTERM) become the script's exit code
+  if [ -n "$SERVER_PID" ]; then
+    kill -9 "$SERVER_PID" 2>/dev/null || true
+    wait "$SERVER_PID" 2>/dev/null || true
+  fi
+  rm -rf "$WORK" || true
 }
 trap cleanup EXIT
 
@@ -66,3 +70,4 @@ php scripts/static-export.php "http://127.0.0.1:$PORT" "$ROOT/dist"
 cp -R public/assets "$ROOT/dist/assets"
 [ -f "$ROOT/dist/index.html" ] || { echo "Build failed: dist/index.html missing" >&2; exit 1; }
 echo "Static export complete: $(find "$ROOT/dist" -name '*.html' | wc -l | tr -d ' ') HTML pages in dist/"
+exit 0
