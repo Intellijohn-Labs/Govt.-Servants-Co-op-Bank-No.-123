@@ -54,7 +54,7 @@ PORT="${BUILD_PORT:-8088}"
 while ! php -r '$s = @stream_socket_server("tcp://127.0.0.1:" . $argv[1]); exit($s ? 0 : 1);' "$PORT"; do
   PORT=$((PORT + 1))
 done
-( cd "$WORK" && php -S "127.0.0.1:$PORT" -t public public/index.php >"$WORK/server.log" 2>&1 ) &
+( cd "$WORK" && exec php -S "127.0.0.1:$PORT" -t public public/index.php >"$WORK/server.log" 2>&1 ) &
 SERVER_PID=$!
 sleep 2
 
