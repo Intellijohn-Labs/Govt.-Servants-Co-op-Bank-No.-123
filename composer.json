@@ -1,0 +1,25 @@
+{
+  "name": "cooperative/bank-template",
+  "description": "Production-ready, multi-client website template for Services Co-operative Banks and Societies in Kerala",
+  "type": "project",
+  "license": "proprietary",
+  "require": {
+    "php": ">=8.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "Core\\": "core/",
+      "App\\": "app/",
+      "Modules\\": "modules/",
+      "Database\\": "database/"
+    },
+    "files": [
+      "core/Helpers.php"
+    ]
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "preferred-install": "dist",
+    "sort-packages": true
+  }
+}

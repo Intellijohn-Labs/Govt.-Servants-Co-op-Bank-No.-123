@@ -1,0 +1,13 @@
+# Root .htaccess for cPanel shared hosting deployments
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Prevent direct access to sensitive folders
+    RewriteRule ^(app|core|database|storage|clients|modules|docs)/ - [F,L]
+    RewriteRule ^\.env - [F,L]
+    RewriteRule ^composer\.(json|lock) - [F,L]
+
+    # Route all requests to public/
+    RewriteCond %{REQUEST_URI} !^/public/
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>

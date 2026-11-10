@@ -1,0 +1,29 @@
+{
+  "name": "Periyar Emerald Green Theme",
+  "preset": "emerald-green",
+  "tokens": {
+    "--primary": "#0F766E",
+    "--primary-contrast": "#FFFFFF",
+    "--secondary": "#059669",
+    "--accent": "#D97706",
+    "--bg": "#F0FDF4",
+    "--surface": "#FFFFFF",
+    "--text": "#111827",
+    "--muted": "#4B5563",
+    "--border": "#E5E7EB",
+    "--header-bg": "#FFFFFF",
+    "--footer-bg": "#064E3B",
+    "--radius": "0.375rem",
+    "--shadow": "0 4px 6px -1px rgb(0 0 0 / 0.08), 0 2px 4px -2px rgb(0 0 0 / 0.06)",
+    "--font-body": "'Inter', 'Noto Sans Malayalam', system-ui, -apple-system, sans-serif",
+    "--font-heading": "'Inter', 'Manjari', system-ui, -apple-system, sans-serif"
+  },
+  "layout": {
+    "header_style": "centered_logo",
+    "hero_style": "single_image",
+    "card_style": "shadow",
+    "footer_columns": 4,
+    "button_radius": "rounded"
+  },
+  "dark_mode_enabled": false
+}

@@ -1,0 +1,29 @@
+{
+  "name": "Kalliaseri Royal Blue Theme",
+  "preset": "royal-blue",
+  "tokens": {
+    "--primary": "#0A4D92",
+    "--primary-contrast": "#FFFFFF",
+    "--secondary": "#1E88E5",
+    "--accent": "#D97706",
+    "--bg": "#F8FAFC",
+    "--surface": "#FFFFFF",
+    "--text": "#0F172A",
+    "--muted": "#64748B",
+    "--border": "#E2E8F0",
+    "--header-bg": "#FFFFFF",
+    "--footer-bg": "#0A2540",
+    "--radius": "0.5rem",
+    "--shadow": "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
+    "--font-body": "'Inter', 'Noto Sans Malayalam', system-ui, -apple-system, sans-serif",
+    "--font-heading": "'Poppins', 'Manjari', system-ui, -apple-system, sans-serif"
+  },
+  "layout": {
+    "header_style": "left_logo",
+    "hero_style": "slider",
+    "card_style": "shadow",
+    "footer_columns": 4,
+    "button_radius": "rounded-pill"
+  },
+  "dark_mode_enabled": false
+}

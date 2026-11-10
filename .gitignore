@@ -1,0 +1,42 @@
+# Environment and local configurations
+.env
+.env.backup
+.env.production
+.env.local
+
+# Composer dependencies
+/vendor/
+
+# Local databases & SQLite files
+*.sqlite
+*.sqlite3
+*.db
+/services_coop_bank
+/storage/database.sqlite
+
+# Cache, logs, and sessions
+/storage/cache/*
+!/storage/cache/.gitkeep
+/storage/logs/*
+!/storage/logs/.gitkeep
+/storage/sessions/*
+!/storage/sessions/.gitkeep
+/storage/backups/*
+!/storage/backups/.gitkeep
+
+# Uploads directory (preserve structure & htaccess, ignore runtime files)
+/public/uploads/*
+!/public/uploads/.htaccess
+!/public/uploads/.gitkeep
+
+# Editor & OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
