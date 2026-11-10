@@ -58,7 +58,7 @@ PORT="${BUILD_PORT:-8088}"
 while ! php -r '$s = @stream_socket_server("tcp://127.0.0.1:" . $argv[1]); exit($s ? 0 : 1);' "$PORT"; do
   PORT=$((PORT + 1))
 done
-( cd "$WORK" && exec php -S "127.0.0.1:$PORT" -t public public/index.php >"$WORK/server.log" 2>&1 ) &
+( cd "$WORK" && exec php -d display_errors=0 -d html_errors=0 -d log_errors=1 -S "127.0.0.1:$PORT" -t public public/index.php >"$WORK/server.log" 2>&1 ) &
 SERVER_PID=$!
 sleep 2
 
@@ -68,6 +68,8 @@ mkdir -p "$ROOT/dist"
 php scripts/static-export.php "http://127.0.0.1:$PORT" "$ROOT/dist"
 
 cp -R public/assets "$ROOT/dist/assets"
+echo "PHP: $(php -v | head -1)"
+php scripts/verify-export.php "$ROOT/dist"
 [ -f "$ROOT/dist/index.html" ] || { echo "Build failed: dist/index.html missing" >&2; exit 1; }
 echo "Static export complete: $(find "$ROOT/dist" -name '*.html' | wc -l | tr -d ' ') HTML pages in dist/"
 exit 0

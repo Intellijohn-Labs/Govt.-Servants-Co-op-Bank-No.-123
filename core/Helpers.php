@@ -46,7 +46,15 @@ if (!function_exists('url')) {
 if (!function_exists('asset')) {
     function asset(string $path): string
     {
-        return '/' . ltrim($path, '/');
+        $url = '/' . ltrim($path, '/');
+        // Append a content hash so browsers/CDNs never serve a stale stylesheet or script
+        // (skips big files such as the intro video).
+        $publicDir = defined('PUBLIC_DIR') ? PUBLIC_DIR : dirname(__DIR__) . '/public';
+        $file = $publicDir . $url;
+        if (is_file($file) && filesize($file) < 1048576) {
+            return $url . '?v=' . substr(md5_file($file), 0, 8);
+        }
+        return $url;
     }
 }
 
