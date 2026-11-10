@@ -737,3 +737,7 @@ body > footer { margin-top: auto; }
 .help-card a { white-space: nowrap; font-size: .98rem; }
 .help-card a.text-break { white-space: normal; overflow-wrap: anywhere; font-size: .9rem; }
 .footer-brand .fs-5 { font-size: 1rem !important; }
+
+/* Intro video */
+.video-frame { max-width: 900px; margin: 0 auto; border-radius: var(--r-lg); overflow: hidden; background: #000; box-shadow: var(--elev-3); border: 1px solid var(--border); aspect-ratio: 16 / 9; }
+.video-frame video { display: block; width: 100%; height: 100%; object-fit: contain; background: #000; }

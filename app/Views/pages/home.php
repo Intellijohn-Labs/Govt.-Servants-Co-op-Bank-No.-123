@@ -281,6 +281,23 @@ $loanEffective = !empty($loanSlabs) ? $loanSlabs[0]['effective_from'] : null;
   </div>
 </section>
 
+<!-- Intro video -->
+<section id="video" class="py-5" aria-labelledby="video-title">
+  <div class="container">
+    <div class="text-center mb-4">
+      <span class="section-eyebrow"><i class="fa-solid fa-circle-play"></i> <?= __('Watch Our Story', 'ഞങ്ങളുടെ കഥ കാണാം') ?></span>
+      <h2 id="video-title" class="section-title"><?= __('Get to Know Us', 'ഞങ്ങളെ അറിയുക') ?></h2>
+      <p class="section-lead mb-0"><?= __('See our century of service in this short film.', 'ഒരു നൂറ്റാണ്ടിന്റെ സേവനത്തിന്റെ കഥ വീഡിയോയിലൂടെ കാണാം.') ?></p>
+    </div>
+    <div class="video-frame">
+      <video controls playsinline preload="none" poster="<?= asset('assets/videos/bank-poster.jpg') ?>">
+        <source src="<?= asset('assets/videos/bank-intro.mp4') ?>" type="video/mp4">
+        <?= __('Your browser does not support video playback.', 'നിങ്ങളുടെ ബ്രൗസർ വീഡിയോ പ്ലേബാക്ക് പിന്തുണയ്ക്കുന്നില്ല.') ?>
+      </video>
+    </div>
+  </div>
+</section>
+
 <!-- 5. Member services (5 services) -->
 <section class="py-5">
   <div class="container">
