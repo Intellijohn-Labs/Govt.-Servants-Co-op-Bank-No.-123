@@ -26,7 +26,7 @@ $crumbs = [
         <div class="bg-light p-3 rounded-3 mb-3 border">
           <div class="row g-2 small">
             <div class="col-md-6"><strong><?= __('Verified Legal Name', 'രജിസ്റ്റർ ചെയ്ത പൂർണ്ണ നാമം') ?>:</strong> <?= e(setting('legal.verified_legal_name')) ?></div>
-            <div class="col-md-6"><strong><?= __('Registration Number', 'രജിസ്ട്രേഷൻ നമ്പർ') ?>:</strong> <?= e(setting('legal.registration_number')) ?></div>
+            <div class="col-md-6"><strong><?= __('Registration Number', 'രജിസ്ട്രേഷൻ നമ്പർ') ?>:</strong> <?= e(registration_number()) ?></div>
             <div class="col-md-6"><strong><?= __('Entity Category', 'സ്ഥാപന വിഭാഗം') ?>:</strong> <?= __('Govt. Servants’ Co-operative Bank', 'സർക്കാർ ജീവനക്കാരുടെ സഹകരണ ബാങ്ക്') ?></div>
             <div class="col-md-6"><strong><?= __('Statutory Audit Classification', 'ഓഡിറ്റ് ഗ്രേഡ്') ?>:</strong> <?= e(setting('stats.audit_classification', 'Class 1')) ?></div>
           </div>

@@ -15,7 +15,8 @@ return [
         'approved_public_name_ml' => 'സർക്കാർ ജീവനക്കാരുടെ സഹകരണ ബാങ്ക് ക്ലിപ്തം നമ്പർ 123, എൻ. പറവൂർ',
         'short_name' => 'GSCB Paravur',
         'entity_type' => 'employee_society', // 'licensed_bank' | 'credit_society' | 'agri_society' | 'employee_society'
-        'registration_number' => 'Reg. No. 123 (Est. 1920)',
+        'registration_number' => 'Reg. No. 123 (Est. 1920 / M.E. 20-07-1095)',
+        'registration_number_ml' => 'ക്ലിപ്തം നമ്പർ 123 (സ്ഥാപിതം: 1920 / മ.വ. 20-07-1095)',
         'rbi_license_number' => '', // not supplied
         'pan' => '', // not supplied
         'gst' => '', // not supplied

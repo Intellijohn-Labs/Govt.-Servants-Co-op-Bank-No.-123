@@ -394,7 +394,7 @@ class SeedData
         // kalliaseri-scb: approved loan slabs only (no template placeholder rates)
         $loanRates = $isBank ? [
             ['loan', 'Loans up to ₹4 Lakhs', '4 ലക്ഷം വരെ', 9.50, 9.50],
-            ['loan', 'Loans above ₹4 Lakhs up to ₹8 Lakhs', '4 ലക്ഷത്തിന് മുകളിൽ 8 ലക്ഷം വരെ', 10.50, 10.50],
+            ['loan', '₹4 Lakh to ₹8 Lakh', '₹4 ലക്ഷം മുതൽ ₹8 ലക്ഷം വരെ', 10.50, 10.50],
             ['loan', 'Loans above ₹8 Lakhs', '8 ലക്ഷത്തിന് മുകളിൽ', 11.50, 11.50], // slab badges are set in hideTemplateFiller()
         ] : [
             ['loan', 'Gold Loan (Swarna Nidhi)', 'സ്വർണ്ണ വായ്പ', 8.50, 8.50],
@@ -666,6 +666,15 @@ class SeedData
              WHERE client_slug = ? AND is_head_office = 1",
             $c
         );
+        // Old template loan rates must never be live for this client (explicit is_active = 0)
+        Database::execute(
+            "UPDATE product_rates SET is_active = 0
+             WHERE client_slug = ? AND category_type = 'loan'
+               AND tenure_label_en IN ('Gold Loan (Swarna Nidhi)', 'Housing Loan (Home Construction)',
+                                       'Kisan Agricultural Loan', 'SME Business & Trader Credit',
+                                       'Vehicle & Two Wheeler Loan')",
+            $c
+        );
         // Head office = the verified institution address & contact details
         Database::execute(
             "UPDATE branches SET code = 'HO-01', name_en = 'Head Office', name_ml = 'ഹെഡ് ഓഫീസ്',
@@ -683,7 +692,7 @@ class SeedData
         );
         $badges = [
             ['Loans up to ₹4 Lakhs', '≤ ₹4L', '4 ലക്ഷം വരെ'],
-            ['Loans above ₹4 Lakhs up to ₹8 Lakhs', '₹4L – ₹8L', '4 – 8 ലക്ഷം'],
+            ['₹4 Lakh to ₹8 Lakh', '₹4L – ₹8L', '4 – 8 ലക്ഷം'],
             ['Loans above ₹8 Lakhs', '> ₹8L', '8 ലക്ഷത്തിന് മുകളിൽ'],
         ];
         foreach ($badges as [$label, $en, $ml]) {

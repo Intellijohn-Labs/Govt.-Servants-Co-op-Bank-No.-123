@@ -15,13 +15,15 @@ INSERT INTO achievements (client_slug, title_en, title_ml, count_value, suffix, 
 
 -- General loan rate table slabs (no dedicated product page)
 INSERT INTO product_rates (client_slug, product_id, category_type, tenure_label_en, tenure_label_ml, general_rate, senior_rate, effective_from, is_active, sort_order) VALUES
- ('kalliaseri-scb', NULL, 'loan', 'Loans up to ₹4 Lakhs', '4 ലക്ഷം വരെ', 9.50, 9.50, date('now'), 1, 0),
- ('kalliaseri-scb', NULL, 'loan', 'Loans above ₹4 Lakhs up to ₹8 Lakhs', '4 ലക്ഷത്തിന് മുകളിൽ 8 ലക്ഷം വരെ', 10.50, 10.50, date('now'), 1, 0),
- ('kalliaseri-scb', NULL, 'loan', 'Loans above ₹8 Lakhs', '8 ലക്ഷത്തിന് മുകളിൽ', 11.50, 11.50, date('now'), 1, 0);
+ ('kalliaseri-scb', NULL, 'loan', 'Loans up to ₹4 Lakhs', '4 ലക്ഷം വരെ', 9.50, 9.50, '2026-11-10', 1, 0),
+ ('kalliaseri-scb', NULL, 'loan', '₹4 Lakh to ₹8 Lakh', '₹4 ലക്ഷം മുതൽ ₹8 ലക്ഷം വരെ', 10.50, 10.50, '2026-11-10', 1, 0),
+ ('kalliaseri-scb', NULL, 'loan', 'Loans above ₹8 Lakhs', '8 ലക്ഷത്തിന് മുകളിൽ', 11.50, 11.50, '2026-11-10', 1, 0);
 
 -- Deactivate placeholder template loan rates (keep only the approved slabs above)
 UPDATE product_rates SET is_active = 0
-WHERE client_slug = 'kalliaseri-scb' AND category_type = 'loan' AND tenure_label_en NOT LIKE 'Loans %';
+WHERE client_slug = 'kalliaseri-scb' AND category_type = 'loan'
+  AND tenure_label_en IN ('Gold Loan (Swarna Nidhi)', 'Housing Loan (Home Construction)',
+                          'Kisan Agricultural Loan', 'SME Business & Trader Credit', 'Vehicle & Two Wheeler Loan');
 
 -- ===== Hide template filler (reversible: set status back to published/active) =====
 UPDATE news            SET status = 'draft'    WHERE client_slug = 'kalliaseri-scb';
@@ -39,7 +41,7 @@ UPDATE branches SET manager_name = NULL, manager_phone = NULL, has_365_days = 0,
 
 -- Short slab badges for the loan table
 UPDATE product_rates SET notes_en = '≤ ₹4L',        notes_ml = '4 ലക്ഷം വരെ'        WHERE client_slug='kalliaseri-scb' AND tenure_label_en = 'Loans up to ₹4 Lakhs';
-UPDATE product_rates SET notes_en = '₹4L – ₹8L',    notes_ml = '4 – 8 ലക്ഷം'        WHERE client_slug='kalliaseri-scb' AND tenure_label_en = 'Loans above ₹4 Lakhs up to ₹8 Lakhs';
+UPDATE product_rates SET notes_en = '₹4L – ₹8L',    notes_ml = '4 – 8 ലക്ഷം'        WHERE client_slug='kalliaseri-scb' AND tenure_label_en = '₹4 Lakh to ₹8 Lakh';
 UPDATE product_rates SET notes_en = '> ₹8L',        notes_ml = '8 ലക്ഷത്തിന് മുകളിൽ' WHERE client_slug='kalliaseri-scb' AND tenure_label_en = 'Loans above ₹8 Lakhs';
 
 -- ===== Authentic institution details (Govt. Servants' Co-operative Bank Ltd. No. 123, N. Paravur) =====
@@ -52,3 +54,13 @@ UPDATE branches SET code = 'HO-01', name_en = 'Head Office', name_ml = 'ഹെ�
        working_hours_ml = 'തിങ്കൾ – ശനി: 9:30 AM – 4:30 PM (ഞായർ അവധി)',
        latitude = 10.1472, longitude = 76.2295, directions_url = NULL
 WHERE client_slug = 'kalliaseri-scb' AND is_head_office = 1;
+
+-- ===== Audit fixes: tidy slab-2 label (idempotent for databases migrated before this change) =====
+UPDATE product_rates SET tenure_label_en = '₹4 Lakh to ₹8 Lakh', tenure_label_ml = '₹4 ലക്ഷം മുതൽ ₹8 ലക്ഷം വരെ'
+WHERE client_slug = 'kalliaseri-scb' AND tenure_label_en = 'Loans above ₹4 Lakhs up to ₹8 Lakhs';
+UPDATE product_rates SET notes_en = '₹4L – ₹8L', notes_ml = '4 – 8 ലക്ഷം'
+WHERE client_slug = 'kalliaseri-scb' AND tenure_label_en = '₹4 Lakh to ₹8 Lakh';
+-- Make sure only the three approved slabs are active
+UPDATE product_rates SET is_active = 0
+WHERE client_slug = 'kalliaseri-scb' AND category_type = 'loan'
+  AND tenure_label_en NOT IN ('Loans up to ₹4 Lakhs', '₹4 Lakh to ₹8 Lakh', 'Loans above ₹8 Lakhs');

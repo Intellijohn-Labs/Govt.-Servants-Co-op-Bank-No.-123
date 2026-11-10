@@ -29,6 +29,20 @@ if (!function_exists('bank_name')) {
     }
 }
 
+if (!function_exists('registration_number')) {
+    /** Registration line in the active language (falls back to English). */
+    function registration_number(): string
+    {
+        if (I18n::isMalayalam()) {
+            $ml = (string)Settings::get('legal.registration_number_ml', '');
+            if ($ml !== '') {
+                return $ml;
+            }
+        }
+        return (string)Settings::get('legal.registration_number', '');
+    }
+}
+
 if (!function_exists('e')) {
     function e(mixed $value): string
     {

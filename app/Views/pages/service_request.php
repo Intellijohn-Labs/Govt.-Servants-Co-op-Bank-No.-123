@@ -156,22 +156,10 @@ $successTrackingCode = \Core\Session::getFlash('success_tracking_code');
                 </label>
                 <select class="form-select" id="request_type" name="request_type" required>
                   <option value="General Inquiry"><?= is_malayalam() ? 'പൊതുവായ അന്വേഷണം' : 'General Inquiry' ?></option>
-                  <optgroup label="<?= __('nav_loans') ?>">
-                    <option value="Gold Loan" <?= ($selected_service === 'gold-loan') ? 'selected' : '' ?>><?= __('gold_loan') ?></option>
-                    <option value="Housing Loan" <?= ($selected_service === 'housing-loan') ? 'selected' : '' ?>><?= __('housing_loan') ?></option>
-                    <option value="Agricultural Loan" <?= ($selected_service === 'agricultural-loan') ? 'selected' : '' ?>><?= __('agricultural_loan') ?></option>
-                    <option value="Business Loan" <?= ($selected_service === 'business-loan') ? 'selected' : '' ?>><?= __('business_loan') ?></option>
-                    <option value="Vehicle Loan" <?= ($selected_service === 'vehicle-loan') ? 'selected' : '' ?>><?= __('vehicle_loan') ?></option>
-                  </optgroup>
-                  <optgroup label="<?= __('nav_deposits') ?>">
-                    <option value="Fixed Deposit" <?= ($selected_service === 'fixed-deposit') ? 'selected' : '' ?>><?= __('fixed_deposit') ?></option>
-                    <option value="Recurring Deposit" <?= ($selected_service === 'recurring-deposit') ? 'selected' : '' ?>><?= __('recurring_deposit') ?></option>
-                    <option value="Pigmy Daily Deposit" <?= ($selected_service === 'pigmy-deposit') ? 'selected' : '' ?>><?= __('pigmy_deposit') ?></option>
-                  </optgroup>
-                  <optgroup label="<?= __('nav_facilities') ?>">
-                    <option value="Safe Deposit Locker" <?= ($selected_service === 'lockers') ? 'selected' : '' ?>><?= __('lockers') ?></option>
-                    <option value="Digital / Mobile Banking" <?= ($selected_service === 'mobile-banking') ? 'selected' : '' ?>><?= __('mobile_banking') ?></option>
-                  </optgroup>
+                  <option value="Loan Enquiry"><?= __('Loan Enquiry (up to ₹10 Lakh)', 'വായ്പാ അന്വേഷണം (10 ലക്ഷം വരെ)') ?></option>
+                  <option value="Deposit Enquiry"><?= __('Deposit Enquiry', 'നിക്ഷേപ അന്വേഷണം') ?></option>
+                  <option value="Membership"><?= __('New Membership', 'പുതിയ അംഗത്വം') ?></option>
+                  <option value="Member Services"><?= __('Medical Store / Stationery / Canteen / Janasevana Kendram', 'മെഡിക്കൽ സ്റ്റോർ / സ്റ്റേഷനറി / കാന്റീൻ / ജനസേവന കേന്ദ്രം') ?></option>
                 </select>
               </div>
 

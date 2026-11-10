@@ -50,7 +50,6 @@
         <ul class="list-unstyled text-secondary">
           <li class="mb-2"><i class="fa-solid fa-trophy text-warning me-2" aria-hidden="true"></i><?= __('Best Employees Society (Taluk level, consecutively)', 'മികച്ച എംപ്ലോയീസ് സംഘം (താലൂക്ക് തലത്തിൽ തുടർച്ചയായി)') ?></li>
           <li class="mb-2"><i class="fa-solid fa-medal text-warning me-2" aria-hidden="true"></i><?= __('1st and 2nd positions at District level since 2020-21', '2020-21 വർഷം മുതൽ ജില്ലാതലത്തിൽ ഒന്നും രണ്ടും സ്ഥാനങ്ങൾ') ?></li>
-          <li class="mb-2"><i class="fa-solid fa-certificate text-warning me-2" aria-hidden="true"></i><?= __('Class 1 Bank (from August 2021)', 'ക്ലാസ്സ് 1 ബാങ്ക് (2021 ആഗസ്റ്റ് മുതൽ)') ?></li>
           <li class="mb-2"><i class="fa-solid fa-percent text-warning me-2" aria-hidden="true"></i><?= __('25% dividend consistently distributed to members', 'അംഗങ്ങൾക്ക് 25% ഡിവിഡൻഡ് തുടർച്ചയായി നൽകുന്നു') ?></li>
           <li class="mb-2"><i class="fa-solid fa-solar-panel text-success me-2" aria-hidden="true"></i><?= __('20-KW solar power system installed: an eco-friendly green bank', '20-KW സൗരോർജ്ജ പാനലുകൾ: ഹരിത ബാങ്ക്') ?></li>
         </ul>

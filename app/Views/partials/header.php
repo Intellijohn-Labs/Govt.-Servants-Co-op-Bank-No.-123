@@ -77,7 +77,7 @@ $memberServiceLinks = [
       <?php endif; ?>
       <div>
         <div class="fw-bold fs-5 text-dark lh-sm"><?= e(bank_name()) ?></div>
-        <div class="text-muted" style="font-size: 0.72rem;"><?= __('Class 1 Bank', 'ക്ലാസ്സ് 1 ബാങ്ക്') ?> · <?= e(setting('legal.registration_number')) ?></div>
+        <div class="text-muted" style="font-size: 0.72rem;"><?= __('Class 1 Bank', 'ക്ലാസ്സ് 1 ബാങ്ക്') ?> · <?= e(registration_number()) ?></div>
       </div>
     </a>
 

@@ -78,7 +78,7 @@ $crumbs = [
           </li>
           <li class="mb-3 d-flex justify-content-between border-bottom border-light border-opacity-25 pb-2">
             <span class="opacity-75"><?= __('Registration No.', 'രജിസ്ട്രേഷൻ നമ്പർ') ?></span>
-            <span class="fw-bold"><?= e(setting('legal.registration_number')) ?></span>
+            <span class="fw-bold"><?= e(registration_number()) ?></span>
           </li>
           <li class="mb-3 d-flex justify-content-between border-bottom border-light border-opacity-25 pb-2">
             <span class="opacity-75"><?= __('Audit Grade', 'ഓഡിറ്റ് ഗ്രേഡ്') ?></span>

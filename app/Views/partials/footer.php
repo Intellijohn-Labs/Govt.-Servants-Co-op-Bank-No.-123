@@ -30,7 +30,7 @@ $dicgcShown = setting('legal.entity_type') === 'licensed_bank'
 
         <h5 class="mt-4"><?= __('Regulated Entity', 'സ്ഥാപന വിവരങ്ങൾ') ?></h5>
         <div class="small">
-          <div class="hours-row"><span class="opacity-75"><?= e(__('reg_no')) ?></span><strong class="text-white text-end"><?= e(setting('legal.registration_number')) ?></strong></div>
+          <div class="hours-row"><span class="opacity-75"><?= e(__('reg_no')) ?></span><strong class="text-white text-end"><?= e(registration_number()) ?></strong></div>
           <?php if (!empty(setting('legal.rbi_license_number'))): ?>
             <div class="hours-row"><span class="opacity-75"><?= __('RBI Licence', 'ആർ.ബി.ഐ ലൈസൻസ്') ?></span><strong class="text-white"><?= e(setting('legal.rbi_license_number')) ?></strong></div>
           <?php endif; ?>

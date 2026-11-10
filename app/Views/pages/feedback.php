@@ -65,7 +65,7 @@ $crumbs = [
               <select name="category" class="form-select">
                 <option value="counter_service"><?= __('Counter / Cashier Service', 'കൗണ്ടർ സേവനം') ?></option>
                 <option value="loan_processing"><?= __('Loan Appraisal & Sanctioning', 'വായ്പാ നടപടികൾ') ?></option>
-                <option value="safe_locker"><?= __('Safe Deposit Locker Facility', 'ലോക്കർ സൗകര്യം') ?></option>
+                <option value="member_services"><?= __('Member Services (Medical Store, Canteen, Janasevana Kendram)', 'സേവനങ്ങൾ (മെഡിക്കൽ സ്റ്റോർ, കാന്റീൻ, ജനസേവന കേന്ദ്രം)') ?></option>
                 <option value="staff_courtesy"><?= __('Staff Courtesy & Assistance', 'ജീവനക്കാരുടെ പെരുമാറ്റം') ?></option>
                 <option value="other"><?= __('Other Suggestions', 'മറ്റ് നിർദ്ദേശങ്ങൾ') ?></option>
               </select>
