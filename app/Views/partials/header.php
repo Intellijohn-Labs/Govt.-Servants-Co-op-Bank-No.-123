@@ -69,7 +69,7 @@ $memberServiceLinks = [
   <div class="container">
     <a class="navbar-brand d-flex align-items-center gap-2" href="<?= url('/') ?>">
       <?php if (!empty(setting('branding.logo'))): ?>
-        <img src="<?= e(asset(setting('branding.logo'))) ?>" alt="<?= e(setting('legal.short_name', 'Logo')) ?>" class="brand-logo" width="48" height="48">
+        <span class="brand-logo-wrap"><img src="<?= e(asset(setting('branding.logo'))) ?>" alt="<?= e(setting('legal.short_name', 'Logo')) ?>" class="brand-logo" width="48" height="48"></span>
       <?php else: ?>
         <div class="brand-icon-box text-white p-2 d-flex align-items-center justify-content-center" style="width: 44px; height: 44px;">
           <i class="fa-solid fa-building-columns fa-lg"></i>
