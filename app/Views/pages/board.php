@@ -48,9 +48,7 @@ $crumbs = [
         </div>
       <?php endforeach; ?>
     <?php else: ?>
-      <div class="col-12 text-center text-muted py-5">
-        <p>Board member information will be updated shortly.</p>
-      </div>
+      <div class="col-12 py-4"><?= $this->partial('coming_soon', ['icon' => 'fa-users']) ?></div>
     <?php endif; ?>
   </div>
 </div>

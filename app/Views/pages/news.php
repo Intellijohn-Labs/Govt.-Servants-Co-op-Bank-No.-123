@@ -20,12 +20,7 @@
 
 <div class="container py-5">
   <?php if (empty($news_list)): ?>
-    <div class="card border-0 shadow-sm text-center py-5">
-      <div class="card-body">
-        <i class="fa-solid fa-newspaper fa-3x text-muted mb-3"></i>
-        <h5 class="text-dark"><?= is_malayalam() ? 'നിലവിൽ വാർത്തകൾ ലഭ്യമല്ല' : 'No news articles available' ?></h5>
-      </div>
-    </div>
+    <?= $this->partial('coming_soon', ['icon' => 'fa-newspaper']) ?>
   <?php else: ?>
     <div class="row g-4">
       <?php foreach ($news_list as $article): ?>

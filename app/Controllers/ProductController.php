@@ -27,6 +27,11 @@ class ProductController
             [$clientSlug]
         );
 
+        // No published catalogue products: send visitors to the member services page
+        if (empty($products)) {
+            return (new Response())->redirect(url('/welfare'));
+        }
+
         $grouped = [];
         foreach ($products as $prod) {
             $catType = $prod['cat_type'];

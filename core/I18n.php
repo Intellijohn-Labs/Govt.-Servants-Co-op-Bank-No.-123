@@ -110,7 +110,14 @@ class I18n
 
     public static function get(string $key, ?string $fallback = null, array $replace = []): string
     {
-        $text = self::$translations[$key] ?? $fallback ?? $key;
+        if (isset(self::$translations[$key])) {
+            $text = self::$translations[$key];
+        } elseif ($fallback !== null && preg_match('/\p{Malayalam}/u', $fallback) && !preg_match('/\p{Malayalam}/u', $key)) {
+            // Inline bilingual call: __('English text', 'മലയാളം') -> pick by active language
+            $text = self::isMalayalam() ? $fallback : $key;
+        } else {
+            $text = $fallback ?? $key;
+        }
 
         if (!empty($replace)) {
             foreach ($replace as $placeholder => $value) {

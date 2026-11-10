@@ -22,3 +22,22 @@ INSERT INTO product_rates (client_slug, product_id, category_type, tenure_label_
 -- Deactivate placeholder template loan rates (keep only the approved slabs above)
 UPDATE product_rates SET is_active = 0
 WHERE client_slug = 'kalliaseri-scb' AND category_type = 'loan' AND tenure_label_en NOT LIKE 'Loans %';
+
+-- ===== Hide template filler (reversible: set status back to published/active) =====
+UPDATE news            SET status = 'draft'    WHERE client_slug = 'kalliaseri-scb';
+UPDATE board_members   SET status = 'inactive' WHERE client_slug = 'kalliaseri-scb';
+UPDATE announcements   SET is_active = 0       WHERE client_slug = 'kalliaseri-scb';
+UPDATE downloads       SET status = 'inactive' WHERE client_slug = 'kalliaseri-scb';
+UPDATE products        SET status = 'draft'    WHERE client_slug = 'kalliaseri-scb';
+UPDATE product_rates   SET is_active = 0       WHERE client_slug = 'kalliaseri-scb' AND category_type = 'deposit';
+DELETE FROM tenders WHERE client_slug = 'kalliaseri-scb';
+DELETE FROM careers WHERE client_slug = 'kalliaseri-scb';
+-- Keep only the head office so the (mandatory) branch selector in forms still works
+UPDATE branches SET status = 'inactive' WHERE client_slug = 'kalliaseri-scb' AND is_head_office = 0;
+UPDATE branches SET manager_name = NULL, manager_phone = NULL, has_365_days = 0, has_locker = 0, has_gold_loan = 0, has_atm = 0
+ WHERE client_slug = 'kalliaseri-scb' AND is_head_office = 1;
+
+-- Short slab badges for the loan table
+UPDATE product_rates SET notes_en = '≤ ₹4L',        notes_ml = '4 ലക്ഷം വരെ'        WHERE client_slug='kalliaseri-scb' AND tenure_label_en = 'Loans up to ₹4 Lakhs';
+UPDATE product_rates SET notes_en = '₹4L – ₹8L',    notes_ml = '4 – 8 ലക്ഷം'        WHERE client_slug='kalliaseri-scb' AND tenure_label_en = 'Loans above ₹4 Lakhs up to ₹8 Lakhs';
+UPDATE product_rates SET notes_en = '> ₹8L',        notes_ml = '8 ലക്ഷത്തിന് മുകളിൽ' WHERE client_slug='kalliaseri-scb' AND tenure_label_en = 'Loans above ₹8 Lakhs';

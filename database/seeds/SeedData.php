@@ -26,6 +26,7 @@ class SeedData
         self::seedNewsAndDownloads($clientSlug);
         self::seedTendersAndCareers($clientSlug);
         self::seedCalculatorsConfig($clientSlug);
+        self::hideTemplateFiller($clientSlug);
 
         echo "Seeding completed successfully for {$clientSlug}!\n";
     }
@@ -394,7 +395,7 @@ class SeedData
         $loanRates = $isBank ? [
             ['loan', 'Loans up to ₹4 Lakhs', '4 ലക്ഷം വരെ', 9.50, 9.50],
             ['loan', 'Loans above ₹4 Lakhs up to ₹8 Lakhs', '4 ലക്ഷത്തിന് മുകളിൽ 8 ലക്ഷം വരെ', 10.50, 10.50],
-            ['loan', 'Loans above ₹8 Lakhs', '8 ലക്ഷത്തിന് മുകളിൽ', 11.50, 11.50],
+            ['loan', 'Loans above ₹8 Lakhs', '8 ലക്ഷത്തിന് മുകളിൽ', 11.50, 11.50], // slab badges are set in hideTemplateFiller()
         ] : [
             ['loan', 'Gold Loan (Swarna Nidhi)', 'സ്വർണ്ണ വായ്പ', 8.50, 8.50],
             ['loan', 'Housing Loan (Home Construction)', 'ഭവന നിർമ്മാണ വായ്പ', 9.25, 9.25],
@@ -635,6 +636,45 @@ class SeedData
                  VALUES (?, ?, ?, ?, ?)
                  ON DUPLICATE KEY UPDATE config_json=VALUES(config_json)",
                 [$clientSlug, $type, $json, $discEn, $discMl]
+            );
+        }
+    }
+
+    /**
+     * kalliaseri-scb only: the template seeds (products, deposit rates, news, branches,
+     * board, announcements, downloads, tenders, careers) contain invented placeholder data.
+     * Hide it so only client-supplied content is public. Reversible by flipping status flags.
+     */
+    private static function hideTemplateFiller(string $clientSlug): void
+    {
+        if ($clientSlug !== 'kalliaseri-scb') {
+            return;
+        }
+        $c = [$clientSlug];
+        Database::execute("UPDATE news SET status = 'draft' WHERE client_slug = ?", $c);
+        Database::execute("UPDATE board_members SET status = 'inactive' WHERE client_slug = ?", $c);
+        Database::execute("UPDATE announcements SET is_active = 0 WHERE client_slug = ?", $c);
+        Database::execute("UPDATE downloads SET status = 'inactive' WHERE client_slug = ?", $c);
+        Database::execute("UPDATE products SET status = 'draft' WHERE client_slug = ?", $c);
+        Database::execute("UPDATE product_rates SET is_active = 0 WHERE client_slug = ? AND category_type = 'deposit'", $c);
+        Database::execute("DELETE FROM tenders WHERE client_slug = ?", $c);
+        Database::execute("DELETE FROM careers WHERE client_slug = ?", $c);
+        // Keep only the head office (the branch selector in forms is mandatory)
+        Database::execute("UPDATE branches SET status = 'inactive' WHERE client_slug = ? AND is_head_office = 0", $c);
+        Database::execute(
+            "UPDATE branches SET manager_name = NULL, manager_phone = NULL, has_365_days = 0, has_locker = 0, has_gold_loan = 0, has_atm = 0
+             WHERE client_slug = ? AND is_head_office = 1",
+            $c
+        );
+        $badges = [
+            ['Loans up to ₹4 Lakhs', '≤ ₹4L', '4 ലക്ഷം വരെ'],
+            ['Loans above ₹4 Lakhs up to ₹8 Lakhs', '₹4L – ₹8L', '4 – 8 ലക്ഷം'],
+            ['Loans above ₹8 Lakhs', '> ₹8L', '8 ലക്ഷത്തിന് മുകളിൽ'],
+        ];
+        foreach ($badges as [$label, $en, $ml]) {
+            Database::execute(
+                "UPDATE product_rates SET notes_en = ?, notes_ml = ? WHERE client_slug = ? AND tenure_label_en = ?",
+                [$en, $ml, $clientSlug, $label]
             );
         }
     }

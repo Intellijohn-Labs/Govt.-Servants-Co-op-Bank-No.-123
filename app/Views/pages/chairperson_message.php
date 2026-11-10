@@ -7,6 +7,9 @@ $crumbs = [
 
 <?= $this->partial('breadcrumbs', ['crumbs' => $crumbs]) ?>
 
+<?php if (empty($chairperson)): ?>
+  <div class="container py-5"><?= $this->partial('coming_soon', ['icon' => 'fa-user-tie']) ?></div>
+<?php return; endif; ?>
 <div class="container py-4">
   <div class="row justify-content-center">
     <div class="col-lg-10">

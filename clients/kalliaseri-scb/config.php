@@ -14,12 +14,12 @@ return [
         'approved_public_name' => 'Kalliaseri Co-operative Urban Bank',
         'entity_type' => 'licensed_bank', // 'licensed_bank' | 'credit_society' | 'agri_society' | 'employee_society'
         'registration_number' => 'C.124 (Regd. 1968)',
-        'rbi_license_number' => 'UBD.KER.042/P',
-        'pan' => 'AAACT1234K',
-        'gst' => '32AAACT1234K1Z5',
-        'dicgc_enabled' => true,
-        'dicgc_statement_en' => 'Deposits are insured up to ₹5,00,000 per depositor by the Deposit Insurance and Credit Guarantee Corporation (DICGC).',
-        'dicgc_statement_ml' => 'നിക്ഷേപങ്ങൾക്ക് ഡെപ്പോസിറ്റ് ഇൻഷുറൻസ് ആൻഡ് ക്രെഡിറ്റ് ഗ്യാരന്റി കോർപ്പറേഷൻ (DICGC) വഴി ₹5,00,000 വരെ ഇൻഷുറൻസ് പരിരക്ഷയുണ്ട്.',
+        'rbi_license_number' => '', // TODO: client to supply
+        'pan' => '', // TODO: client to supply
+        'gst' => '', // TODO: client to supply
+        'dicgc_enabled' => false, // TODO: confirm deposit-insurance status with client
+        'dicgc_statement_en' => '',
+        'dicgc_statement_ml' => '',
         'ombudsman_name' => 'Banking Ombudsman (RBI, Thiruvananthapuram)',
         'ombudsman_url' => 'https://cms.rbi.org.in',
         'domain_obligation_note' => 'Licensed co-operative bank complying with RBI circular RBI/2025-26/28 regarding .bank.in domain adoption.',
@@ -46,8 +46,6 @@ return [
         'twitter' => 'https://twitter.com/kalliaseribank',
         'instagram' => 'https://instagram.com/kalliaseribank',
         'youtube' => 'https://youtube.com/@kalliaseribank',
-        'play_store' => 'https://play.google.com/store/apps/details?id=in.bank.kalliaseri.mobile',
-        'app_store' => 'https://apps.apple.com/app/id1234567890',
     ],
 
     // Key Highlights & Stats for Homepage Counters
@@ -72,11 +70,7 @@ return [
         'welfare_projects',
         'trust_centre',
         'announcements',
-        'mobile_app_promo',
-        'tenders',
-        'careers',
         'downloads',
-        'unclaimed_deposits',
     ],
 
     'default_language' => 'en',

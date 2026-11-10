@@ -35,20 +35,9 @@ class PageController
     public function chairpersonMessage(Request $request): Response
     {
         $chairperson = Database::fetchOne(
-            "SELECT * FROM board_members WHERE client_slug = ? AND role_type = 'chairperson' LIMIT 1",
+            "SELECT * FROM board_members WHERE client_slug = ? AND role_type = 'chairperson' AND status = 'active' LIMIT 1",
             [client_slug()]
         );
-
-        if (!$chairperson) {
-            $chairperson = [
-                'name_en' => 'The President',
-                'name_ml' => 'പ്രസിഡന്റ്',
-                'designation_en' => 'President',
-                'designation_ml' => 'പ്രസിഡന്റ്',
-                'message_en' => 'Committed to serving our community with trust and transparency.',
-                'message_ml' => 'സുതാര്യതയോടെയും വിശ്വാസ്യതയോടെയും നാടിന്റെ സേവനത്തിൽ.',
-            ];
-        }
 
         $response = new Response();
         return $response->view('pages/chairperson_message', [
