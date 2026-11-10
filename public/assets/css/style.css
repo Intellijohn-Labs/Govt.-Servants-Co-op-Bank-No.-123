@@ -741,3 +741,37 @@ body > footer { margin-top: auto; }
 /* Intro video */
 .video-frame { max-width: 900px; margin: 0 auto; border-radius: var(--r-lg); overflow: hidden; background: #000; box-shadow: var(--elev-3); border: 1px solid var(--border); aspect-ratio: 16 / 9; }
 .video-frame video { display: block; width: 100%; height: 100%; object-fit: contain; background: #000; }
+
+/* TV-style video frame */
+.tv { max-width: 900px; margin: 0 auto; }
+.tv-body {
+  position: relative;
+  padding: 22px 22px 12px;
+  border-radius: 30px;
+  background: linear-gradient(150deg, #3a3f4c 0%, #1b1e26 45%, #0e1015 100%);
+  border: 1px solid #4a505e;
+  box-shadow: var(--elev-3), inset 0 2px 0 rgb(255 255 255 / .14), inset 0 -3px 8px rgb(0 0 0 / .5);
+}
+.tv-screen {
+  position: relative; aspect-ratio: 16 / 9; overflow: hidden; background: #000;
+  border-radius: 16px;
+  box-shadow: 0 0 0 3px #05070a, 0 0 0 5px #4a505e, inset 0 0 24px rgb(0 0 0 / .8);
+}
+.tv-screen video { display: block; width: 100%; height: 100%; object-fit: contain; background: #000; }
+.tv-screen::after { /* glass reflection; never blocks clicks */
+  content: ''; position: absolute; inset: 0; pointer-events: none; border-radius: inherit;
+  background: linear-gradient(115deg, rgb(255 255 255 / .09) 0%, rgb(255 255 255 / 0) 38%);
+}
+.tv-panel { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .7rem .5rem .3rem; }
+.tv-led { width: 9px; height: 9px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 8px 2px rgb(34 197 94 / .7); }
+.tv-brand { font-family: var(--font-heading); font-weight: 700; font-size: .72rem; letter-spacing: .28em; text-transform: uppercase; color: #aab1c0; }
+.tv-knobs { display: inline-flex; gap: .45rem; }
+.tv-knobs i { width: 14px; height: 14px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #6b7280, #1f2937 70%); box-shadow: 0 1px 2px rgb(0 0 0 / .6); }
+.tv-stand { display: flex; justify-content: center; gap: min(46%, 300px); margin-top: -1px; }
+.tv-stand span { width: 84px; height: 18px; background: linear-gradient(#262a33, #0e1015); clip-path: polygon(14% 0, 86% 0, 100% 100%, 0 100%); }
+@media (max-width: 575.98px) {
+  .tv-body { padding: 12px 12px 8px; border-radius: 20px; }
+  .tv-screen { border-radius: 10px; }
+  .tv-knobs { display: none; }
+  .tv-stand span { width: 56px; height: 12px; }
+}
