@@ -27,22 +27,7 @@ $crumbs = [
           <input type="text" name="q" class="form-control border-start-0" placeholder="<?= __('Search by branch name, place, or district...', 'ശാഖയുടെ പേര് അല്ലെങ്കിൽ സ്ഥലം തിരയുക...') ?>" value="<?= e($search_query ?? '') ?>">
         </div>
       </div>
-      <div class="col-sm-6 col-md-3">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" name="locker" value="1" id="filterLocker" <?= !empty($filter_locker) ? 'checked' : '' ?> onchange="this.form.submit()">
-          <label class="form-check-label small fw-semibold" for="filterLocker">
-            <i class="fa-solid fa-vault text-primary me-1"></i> <?= __('Safe Lockers Only', 'ലോക്കർ സൗകര്യമുള്ളവ') ?>
-          </label>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-2">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" name="365" value="1" id="filter365" <?= !empty($filter_365) ? 'checked' : '' ?> onchange="this.form.submit()">
-          <label class="form-check-label small fw-semibold" for="filter365">
-            <i class="fa-solid fa-clock text-warning me-1"></i> <?= __('365 Days Only', '365 ദിവസവും') ?>
-          </label>
-        </div>
-      </div>
+      <?php /* Locker / 365-day filters are hidden: not applicable to this institution (re-enable if branches offer them). */ ?>
       <div class="col-md-2 text-end">
         <button type="submit" class="btn btn-primary btn-sm w-100 fw-bold"><?= __('Filter', 'തിരയുക') ?></button>
       </div>
@@ -135,17 +120,18 @@ document.addEventListener('DOMContentLoaded', function () {
   if (!mapElement) return;
 
   const branches = <?= json_encode($branches ?? []) ?>;
+  const bankName = <?= json_encode(bank_name(), JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_AMP) ?>;
 
   // Default coordinate (Kerala region)
-  let defaultLat = 10.1450;
-  let defaultLng = 76.2250;
+  let defaultLat = 10.1472;
+  let defaultLng = 76.2295;
 
   if (branches.length > 0 && branches[0].latitude) {
     defaultLat = parseFloat(branches[0].latitude);
     defaultLng = parseFloat(branches[0].longitude);
   }
 
-  const map = L.map('branchMap').setView([defaultLat, defaultLng], 13);
+  const map = L.map('branchMap').setView([defaultLat, defaultLng], 16);
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
@@ -159,18 +145,21 @@ document.addEventListener('DOMContentLoaded', function () {
       const lng = parseFloat(b.longitude);
       bounds.push([lat, lng]);
 
-      const title = <?= is_malayalam() ? 'b.name_ml' : 'b.name_en' ?> || b.name_en;
+      const title = (parseInt(b.is_head_office, 10) === 1) ? bankName : (<?= is_malayalam() ? 'b.name_ml' : 'b.name_en' ?> || b.name_en);
       const addr = <?= is_malayalam() ? 'b.address_ml' : 'b.address_en' ?> || b.address_en;
       const phone = b.phone ? `<br><a href="tel:${b.phone}">${b.phone}</a>` : '';
 
       L.marker([lat, lng])
         .addTo(map)
-        .bindPopup(`<strong>${title}</strong><br>${addr || ''}${phone}`);
+        .bindPopup(`<strong>${title}</strong><br>${addr || ''}${phone}`)
+        .openPopup();
     }
   });
 
   if (bounds.length > 1) {
     map.fitBounds(bounds, { padding: [30, 30] });
+  } else if (bounds.length === 1) {
+    map.setView(bounds[0], 16);
   }
 });
 </script>

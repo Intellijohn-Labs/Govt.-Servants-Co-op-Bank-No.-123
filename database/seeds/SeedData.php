@@ -673,7 +673,7 @@ class SeedData
                     phone = '0484-2442693', alternate_phone = NULL, email = 'gscb123paravur@gmail.com',
                     working_hours_en = 'Monday – Saturday: 9:30 AM – 4:30 PM (Sunday Closed)',
                     working_hours_ml = 'തിങ്കൾ – ശനി: 9:30 AM – 4:30 PM (ഞായർ അവധി)',
-                    latitude = NULL, longitude = NULL, directions_url = NULL
+                    latitude = 10.1472, longitude = 76.2295, directions_url = NULL
              WHERE client_slug = ? AND is_head_office = 1",
             [
                 'Court Complex West, N. Paravur, Ernakulam, Kerala - 683513',
