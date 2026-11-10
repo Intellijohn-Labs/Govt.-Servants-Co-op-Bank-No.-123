@@ -7,7 +7,7 @@
             <i class="fa-solid fa-lock fa-2x"></i>
           </div>
           <h4 class="fw-bold mb-1"><?= __('Administrative Login', 'അഡ്മിൻ ലോഗിൻ') ?></h4>
-          <p class="text-muted small"><?= e(setting('legal.approved_public_name')) ?> CMS</p>
+          <p class="text-muted small"><?= e(bank_name()) ?> CMS</p>
         </div>
 
         <?php if (flash('error')): ?>

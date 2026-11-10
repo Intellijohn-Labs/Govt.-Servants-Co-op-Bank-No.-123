@@ -137,15 +137,15 @@ document.addEventListener('DOMContentLoaded', function () {
   const branches = <?= json_encode($branches ?? []) ?>;
 
   // Default coordinate (Kerala region)
-  let defaultLat = 11.9702;
-  let defaultLng = 75.3528;
+  let defaultLat = 10.1450;
+  let defaultLng = 76.2250;
 
   if (branches.length > 0 && branches[0].latitude) {
     defaultLat = parseFloat(branches[0].latitude);
     defaultLng = parseFloat(branches[0].longitude);
   }
 
-  const map = L.map('branchMap').setView([defaultLat, defaultLng], 12);
+  const map = L.map('branchMap').setView([defaultLat, defaultLng], 13);
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,

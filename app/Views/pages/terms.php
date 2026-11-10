@@ -12,7 +12,7 @@ $crumbs = [
       <div class="card border-0 shadow-sm rounded-4 p-4 p-md-5">
         <h1 class="fw-bold mb-3"><?= __('Website Terms of Use & Disclaimers', 'ഉപയോഗ നിബന്ധനകളും വിവര നിരാകരണവും') ?></h1>
         <div class="text-muted small mb-4">
-          <?= e(setting('legal.approved_public_name')) ?> | <?= __('Last Updated', 'അവസാനം പുതുക്കിയത്') ?>: <?= date('F Y') ?>
+          <?= e(bank_name()) ?> | <?= __('Last Updated', 'അവസാനം പുതുക്കിയത്') ?>: <?= date('F Y') ?>
         </div>
 
         <div class="content-body lh-lg text-dark">

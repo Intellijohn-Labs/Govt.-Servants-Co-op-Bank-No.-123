@@ -41,3 +41,14 @@ UPDATE branches SET manager_name = NULL, manager_phone = NULL, has_365_days = 0,
 UPDATE product_rates SET notes_en = '≤ ₹4L',        notes_ml = '4 ലക്ഷം വരെ'        WHERE client_slug='kalliaseri-scb' AND tenure_label_en = 'Loans up to ₹4 Lakhs';
 UPDATE product_rates SET notes_en = '₹4L – ₹8L',    notes_ml = '4 – 8 ലക്ഷം'        WHERE client_slug='kalliaseri-scb' AND tenure_label_en = 'Loans above ₹4 Lakhs up to ₹8 Lakhs';
 UPDATE product_rates SET notes_en = '> ₹8L',        notes_ml = '8 ലക്ഷത്തിന് മുകളിൽ' WHERE client_slug='kalliaseri-scb' AND tenure_label_en = 'Loans above ₹8 Lakhs';
+
+-- ===== Authentic institution details (Govt. Servants' Co-operative Bank Ltd. No. 123, N. Paravur) =====
+UPDATE branches SET code = 'HO-01', name_en = 'Head Office', name_ml = 'ഹെഡ് ഓഫീസ്',
+       address_en = 'Court Complex West, N. Paravur, Ernakulam, Kerala - 683513',
+       address_ml = 'കോടതി സമുച്ചയത്തിന് പടിഞ്ഞാറ്, എൻ. പറവൂർ, എറണാകുളം, കേരളം - 683513',
+       district = 'Ernakulam', pincode = '683513', phone = '0484-2442693', alternate_phone = NULL,
+       email = 'gscb123paravur@gmail.com',
+       working_hours_en = 'Monday – Saturday: 9:30 AM – 4:30 PM (Sunday Closed)',
+       working_hours_ml = 'തിങ്കൾ – ശനി: 9:30 AM – 4:30 PM (ഞായർ അവധി)',
+       latitude = NULL, longitude = NULL, directions_url = NULL
+WHERE client_slug = 'kalliaseri-scb' AND is_head_office = 1;

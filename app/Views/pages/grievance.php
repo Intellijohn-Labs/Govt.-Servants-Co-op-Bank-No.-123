@@ -37,12 +37,12 @@ $crumbs = [
           <?= __('If unresolved at the branch level, escalate to our appointed Grievance Redressal Officer at Head Office.', 'ശാഖാ തലത്തിൽ പരിഹരിക്കപ്പെടാത്ത പരാതികൾ ഹെഡ് ഓഫീസിലെ ഗ്രീവൻസ് ഓഫീസർക്ക് അയക്കുക.') ?>
         </p>
         <div class="small text-muted border-top pt-2">
-          <div><strong><?= __('Officer', 'ഉദ്യോഗസ്ഥൻ') ?>:</strong> K. Suresh Kumar (General Manager)</div>
-          <div><strong><?= __('Email', 'ഇമെയിൽ') ?>:</strong> <a href="mailto:<?= e(setting('contact.grievance_email', 'grievance@coopbank.local')) ?>"><?= e(setting('contact.grievance_email', 'grievance@coopbank.local')) ?></a></div>
+          <div><strong><?= __('Email', 'ഇമെയിൽ') ?>:</strong> <a href="mailto:<?= e(setting('contact.grievance_email', 'gscb123paravur@gmail.com')) ?>"><?= e(setting('contact.grievance_email', 'gscb123paravur@gmail.com')) ?></a></div>
         </div>
       </div>
     </div>
 
+    <?php if (!empty(setting('legal.ombudsman_name'))): ?>
     <div class="col-lg-4">
       <div class="card h-100 border-0 shadow-sm rounded-4 p-4 border-top border-4 border-danger">
         <span class="badge bg-danger text-white mb-2"><?= __('Level 3: Ombudsman', 'ഘട്ടം 3: ഓംബുഡ്സ്മാൻ') ?></span>
@@ -57,6 +57,7 @@ $crumbs = [
         <?php endif; ?>
       </div>
     </div>
+    <?php endif; ?>
   </div>
 
   <!-- Online Grievance Submission Card -->

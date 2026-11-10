@@ -21,31 +21,29 @@ $crumbs = [
       <div class="card border-0 shadow-sm rounded-4 p-4 p-md-5 mb-4">
         <h4 class="fw-bold text-primary mb-3">1. <?= __('Incorporation & Registration Status', 'രജിസ്ട്രേഷനും നിയമസാധുതയും') ?></h4>
         <p>
-          <?= e(setting('legal.approved_public_name')) ?> is officially registered under the <strong>Kerala Co-operative Societies Act, 1969</strong> and the statutory rules framed thereunder.
+          <?= e(bank_name()) ?> is officially registered under the <strong>Kerala Co-operative Societies Act, 1969</strong> and the statutory rules framed thereunder.
         </p>
         <div class="bg-light p-3 rounded-3 mb-3 border">
           <div class="row g-2 small">
             <div class="col-md-6"><strong><?= __('Verified Legal Name', 'രജിസ്റ്റർ ചെയ്ത പൂർണ്ണ നാമം') ?>:</strong> <?= e(setting('legal.verified_legal_name')) ?></div>
             <div class="col-md-6"><strong><?= __('Registration Number', 'രജിസ്ട്രേഷൻ നമ്പർ') ?>:</strong> <?= e(setting('legal.registration_number')) ?></div>
-            <div class="col-md-6"><strong><?= __('Entity Category', 'സ്ഥാപന വിഭാഗം') ?>:</strong> <?= e(strtoupper(setting('legal.entity_type'))) ?></div>
-            <div class="col-md-6"><strong><?= __('Statutory Audit Classification', 'ഓഡിറ്റ് ഗ്രേഡ്') ?>:</strong> <?= e(setting('stats.audit_classification', 'Class A')) ?></div>
+            <div class="col-md-6"><strong><?= __('Entity Category', 'സ്ഥാപന വിഭാഗം') ?>:</strong> <?= __('Govt. Servants’ Co-operative Bank', 'സർക്കാർ ജീവനക്കാരുടെ സഹകരണ ബാങ്ക്') ?></div>
+            <div class="col-md-6"><strong><?= __('Statutory Audit Classification', 'ഓഡിറ്റ് ഗ്രേഡ്') ?>:</strong> <?= e(setting('stats.audit_classification', 'Class 1')) ?></div>
           </div>
         </div>
 
         <h4 class="fw-bold text-primary mb-3 mt-4">2. <?= __('Regulatory Scope & Banking Terms', 'റെഗുലേറ്ററി പരിധികളും നിബന്ധനകളും') ?></h4>
         <p>
-          <?php if (setting('legal.entity_type') === 'licensed_bank'): ?>
-            This institution holds a valid banking license from the Reserve Bank of India under the Banking Regulation Act, 1949 (As Applicable to Co-operative Societies). Deposits accepted from members and eligible public are insured up to ₹5,00,000 per depositor under the Deposit Insurance and Credit Guarantee Corporation (DICGC) Act.
-          <?php else: ?>
-            This institution operates as a primary service co-operative credit society under the regulatory purview of the Registrar of Co-operative Societies, Government of Kerala. In strict adherence to Section 7 of the Banking Regulation Act (Amendment), it does not represent itself as a commercial bank. All deposit acceptance and credit facilities are conducted exclusively within the society’s registered operational area for enrolled members.
-          <?php endif; ?>
+          <?= is_malayalam()
+            ? 'ഇത് കേരള സഹകരണ സംഘം നിയമം, 1969 പ്രകാരം രജിസ്റ്റർ ചെയ്ത (രജി. നമ്പർ 123) സഹകരണ സ്ഥാപനമാണ്; കേരള സർക്കാരിന്റെ സഹകരണ സംഘം രജിസ്ട്രാറുടെ നിയന്ത്രണത്തിൽ പ്രവർത്തിക്കുന്നു. 2021 ആഗസ്റ്റ് മുതൽ ക്ലാസ്സ് 1 ബാങ്കായി തരംതിരിച്ചിരിക്കുന്നു.'
+            : 'This institution is a co-operative society registered under the Kerala Co-operative Societies Act, 1969 (Reg. No. 123) and operates under the regulatory purview of the Registrar of Co-operative Societies, Government of Kerala. It has been classified as a Class 1 bank since August 2021.' ?>
         </p>
 
         <h4 class="fw-bold text-primary mb-3 mt-4">3. <?= __('Membership & Area of Operation', 'അംഗത്വവും പ്രവർത്തന പരിധിയും') ?></h4>
         <p>
           <?= is_malayalam()
-            ? 'സൊസൈറ്റിയുടെ അംഗീകൃത പ്രവർത്തന പരിധിയിൽ സ്ഥിരതാമസക്കാരായ വ്യക്തികൾക്ക് ഉപനിയമാനുസരണം എ-ക്ലാസ്, ബി-ക്ലാസ് അംഗത്വം എടുക്കാവുന്നതാണ്. അംഗങ്ങളുടെ സാമ്പത്തിക സുരക്ഷിതത്വവും സ്വാശ്രയത്വവുമാണ് പ്രവർത്തനങ്ങളുടെ മുഖ്യലക്ഷ്യം.'
-            : 'Any permanent resident within our notified operational jurisdiction who meets the eligibility criteria laid down in our bylaws may apply for membership. Operations are governed democratically under the principle of one member, one vote.' ?>
+            ? 'പറവൂർ താലൂക്കിലെ സർക്കാർ/അർദ്ധ സർക്കാർ സ്ഥാപനങ്ങളിൽ ജോലിയുള്ളതും പറവൂർ താലൂക്കിൽ സ്ഥിരതാമസമോ സ്ഥാവര സ്വത്തുക്കളോ ഉള്ളതുമായ വ്യക്തികൾക്ക് ബാങ്കിൽ അംഗത്വം നൽകുന്നു.'
+            : 'Membership is open to persons employed in government or semi-government institutions in Paravur Taluk who also have permanent residence or immovable property in the taluk.' ?>
         </p>
 
         <h4 class="fw-bold text-primary mb-3 mt-4">4. <?= __('Information Website Disclaimer', 'വെബ്സൈറ്റ് വിവര നിരാകരണം') ?></h4>

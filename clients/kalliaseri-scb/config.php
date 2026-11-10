@@ -2,51 +2,48 @@
 declare(strict_types=1);
 
 /**
- * Client Configuration: Kalliaseri Co-operative Urban Bank
- * Legal Profile: Licensed Co-operative Bank under Banking Regulation Act
+ * Client Configuration: Govt. Servants' Co-operative Bank Ltd. No. 123, N. Paravur
+ * Legal Profile: Co-operative society registered under the Kerala Co-operative Societies Act (Class 1)
  */
 return [
     'client_slug' => 'kalliaseri-scb',
     
-    // Legal Profile & Regulatory Compliance
+    // Legal Profile & Regulatory Compliance (verified from the bank's official letters)
     'legal' => [
-        'verified_legal_name' => 'The Kalliaseri Co-operative Urban Bank Ltd. No. C.124',
-        'approved_public_name' => 'Kalliaseri Co-operative Urban Bank',
-        'entity_type' => 'licensed_bank', // 'licensed_bank' | 'credit_society' | 'agri_society' | 'employee_society'
-        'registration_number' => 'C.124 (Regd. 1968)',
-        'rbi_license_number' => '', // TODO: client to supply
-        'pan' => '', // TODO: client to supply
-        'gst' => '', // TODO: client to supply
-        'dicgc_enabled' => false, // TODO: confirm deposit-insurance status with client
+        'verified_legal_name' => "Govt. Servants' Co-operative Bank Ltd. No. 123, N. Paravur",
+        'approved_public_name' => "Govt. Servants' Co-operative Bank Ltd. No. 123, N. Paravur",
+        'approved_public_name_ml' => 'സർക്കാർ ജീവനക്കാരുടെ സഹകരണ ബാങ്ക് ക്ലിപ്തം നമ്പർ 123, എൻ. പറവൂർ',
+        'short_name' => 'GSCB Paravur',
+        'entity_type' => 'employee_society', // 'licensed_bank' | 'credit_society' | 'agri_society' | 'employee_society'
+        'registration_number' => 'Reg. No. 123 (Est. 1920)',
+        'rbi_license_number' => '', // not supplied
+        'pan' => '', // not supplied
+        'gst' => '', // not supplied
+        'dicgc_enabled' => false, // deposit-insurance status not confirmed
         'dicgc_statement_en' => '',
         'dicgc_statement_ml' => '',
-        'ombudsman_name' => 'Banking Ombudsman (RBI, Thiruvananthapuram)',
-        'ombudsman_url' => 'https://cms.rbi.org.in',
-        'domain_obligation_note' => 'Licensed co-operative bank complying with RBI circular RBI/2025-26/28 regarding .bank.in domain adoption.',
+        'ombudsman_name' => '', // not supplied
+        'ombudsman_url' => '',
+        'domain_obligation_note' => '',
     ],
 
     // Contact & Physical Head Office
     'contact' => [
-        'head_office_address_en' => 'Head Office, Central Junction, Kalliaseri, Kannur District, Kerala - 670562',
-        'head_office_address_ml' => 'ഹെഡ് ഓഫീസ്, സെൻട്രൽ ജംഗ്ഷൻ, കല്ല്യാശ്ശേരി, കണ്ണൂർ ജില്ല, കേരളം - 670562',
-        'primary_phone' => '+91 497 278 1200',
-        'secondary_phone' => '+91 497 278 1201',
-        'toll_free' => '1800 425 1968',
-        'whatsapp_number' => '919447123456',
-        'email' => 'info@kalliaseribank.bank.in',
-        'support_email' => 'support@kalliaseribank.bank.in',
-        'grievance_email' => 'grievance@kalliaseribank.bank.in',
-        'working_hours_en' => 'Monday - Saturday: 9:30 AM to 4:30 PM (2nd & 4th Saturday Holiday)',
-        'working_hours_ml' => 'തിങ്കൾ മുതൽ ശനി വരെ: 9:30 AM മുതൽ 4:30 PM വരെ (2-ാം, 4-ാം ശനി അവധി)',
+        'head_office_address_en' => 'Court Complex West, N. Paravur, Ernakulam, Kerala - 683513',
+        'head_office_address_ml' => 'കോടതി സമുച്ചയത്തിന് പടിഞ്ഞാറ്, എൻ. പറവൂർ, എറണാകുളം, കേരളം - 683513',
+        'primary_phone' => '0484-2442693',
+        'secondary_phone' => '',
+        'toll_free' => '',
+        'whatsapp_number' => '',
+        'email' => 'gscb123paravur@gmail.com',
+        'support_email' => 'gscb123paravur@gmail.com',
+        'grievance_email' => 'gscb123paravur@gmail.com',
+        'working_hours_en' => 'Monday – Saturday: 9:30 AM – 4:30 PM (Sunday Closed)',
+        'working_hours_ml' => 'തിങ്കൾ – ശനി: 9:30 AM – 4:30 PM (ഞായർ അവധി)',
     ],
 
-    // Digital Channels & Social Links
-    'social' => [
-        'facebook' => 'https://facebook.com/kalliaseribank',
-        'twitter' => 'https://twitter.com/kalliaseribank',
-        'instagram' => 'https://instagram.com/kalliaseribank',
-        'youtube' => 'https://youtube.com/@kalliaseribank',
-    ],
+    // Digital Channels & Social Links (none supplied)
+    'social' => [],
 
     // Key Highlights & Stats for Homepage Counters
     'stats' => [

@@ -26,7 +26,7 @@ $crumbs = [
             <span class="badge bg-primary text-white mb-2"><?= __('presidents_message_heading') ?></span>
             <h2 class="fw-bold mb-2"><?= is_malayalam() ? 'ജനവിശ്വാസത്തിന്റെ കരുത്തിൽ മുന്നോട്ട്' : 'Building Community Prosperity Through Co-operative Solidarity' ?></h2>
             <div class="text-muted small">
-              <i class="fa-solid fa-calendar me-1"></i> <?= date('F Y') ?> | <?= e(setting('legal.approved_public_name')) ?>
+              <i class="fa-solid fa-calendar me-1"></i> <?= date('F Y') ?> | <?= e(bank_name()) ?>
             </div>
           </div>
         </div>
@@ -48,7 +48,7 @@ $crumbs = [
               <div class="text-muted small"><?= is_malayalam() ? e($chairperson['designation_ml']) : e($chairperson['designation_en']) ?></div>
             </div>
             <div class="text-muted small fst-italic">
-              <?= e(setting('legal.approved_public_name')) ?>
+              <?= e(bank_name()) ?>
             </div>
           </div>
         </div>

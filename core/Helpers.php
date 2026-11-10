@@ -14,6 +14,21 @@ if (!function_exists('__')) {
     }
 }
 
+if (!function_exists('bank_name')) {
+    /** Public institution name in the active language (falls back to English). */
+    function bank_name(): string
+    {
+        $en = (string)Settings::get('legal.approved_public_name', '');
+        if (I18n::isMalayalam()) {
+            $ml = (string)Settings::get('legal.approved_public_name_ml', '');
+            if ($ml !== '') {
+                return $ml;
+            }
+        }
+        return $en;
+    }
+}
+
 if (!function_exists('e')) {
     function e(mixed $value): string
     {

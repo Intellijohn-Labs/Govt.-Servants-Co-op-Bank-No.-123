@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-  <title><?= !empty($meta_title) ? e($meta_title) . ' | ' : '' ?><?= e(setting('legal.approved_public_name', 'Services Co-operative Bank')) ?></title>
+  <title><?= !empty($meta_title) ? e($meta_title) . ' | ' : '' ?><?= e(bank_name()) ?></title>
   <meta name="description" content="<?= e($meta_desc ?? setting('legal.verified_legal_name', 'Services Co-operative Bank in Kerala')) ?>">
 
   <!-- Open Graph / Social Meta -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="<?= !empty($meta_title) ? e($meta_title) : e(setting('legal.approved_public_name')) ?>">
+  <meta property="og:title" content="<?= !empty($meta_title) ? e($meta_title) : e(bank_name()) ?>">
   <meta property="og:description" content="<?= e($meta_desc ?? setting('tagline', '')) ?>">
   <meta property="og:url" content="<?= e($app_url . ($_SERVER['REQUEST_URI'] ?? '/')) ?>">
 
@@ -40,8 +40,8 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "<?= setting('legal.entity_type') === 'licensed_bank' ? 'FinancialService' : 'LocalBusiness' ?>",
-    "name": "<?= e(setting('legal.approved_public_name')) ?>",
+    "@type": "FinancialService",
+    "name": "<?= e(bank_name()) ?>",
     "legalName": "<?= e(setting('legal.verified_legal_name')) ?>",
     "description": "<?= e(setting('tagline', 'Co-operative Financial Institution in Kerala')) ?>",
     "url": "<?= e($app_url) ?>",

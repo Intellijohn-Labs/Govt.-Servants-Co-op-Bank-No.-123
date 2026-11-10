@@ -18,7 +18,7 @@ $crumbs = [
         <div class="content-body lh-lg text-dark">
           <h5 class="fw-bold text-primary">1. <?= __('Commitment to Member Privacy', 'വ്യക്തിഗത വിവര സംരക്ഷണം') ?></h5>
           <p>
-            <?= e(setting('legal.approved_public_name')) ?> is committed to safeguarding personal information submitted through this website. We process only minimal data necessary to respond to financial service enquiries, loan applications, and customer feedback.
+            <?= e(bank_name()) ?> is committed to safeguarding personal information submitted through this website. We process only minimal data necessary to respond to financial service enquiries, loan applications, and customer feedback.
           </p>
 
           <h5 class="fw-bold text-primary mt-4">2. <?= __('Strict No-Aadhaar and No-Card Policy on Web Forms', 'ആധാർ, കാർഡ് വിവരങ്ങൾ ശേഖരിക്കാതിരിക്കാനുള്ള നയം') ?></h5>

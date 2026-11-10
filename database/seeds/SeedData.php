@@ -666,6 +666,21 @@ class SeedData
              WHERE client_slug = ? AND is_head_office = 1",
             $c
         );
+        // Head office = the verified institution address & contact details
+        Database::execute(
+            "UPDATE branches SET code = 'HO-01', name_en = 'Head Office', name_ml = 'ഹെഡ് ഓഫീസ്',
+                    address_en = ?, address_ml = ?, district = 'Ernakulam', pincode = '683513',
+                    phone = '0484-2442693', alternate_phone = NULL, email = 'gscb123paravur@gmail.com',
+                    working_hours_en = 'Monday – Saturday: 9:30 AM – 4:30 PM (Sunday Closed)',
+                    working_hours_ml = 'തിങ്കൾ – ശനി: 9:30 AM – 4:30 PM (ഞായർ അവധി)',
+                    latitude = NULL, longitude = NULL, directions_url = NULL
+             WHERE client_slug = ? AND is_head_office = 1",
+            [
+                'Court Complex West, N. Paravur, Ernakulam, Kerala - 683513',
+                'കോടതി സമുച്ചയത്തിന് പടിഞ്ഞാറ്, എൻ. പറവൂർ, എറണാകുളം, കേരളം - 683513',
+                $clientSlug,
+            ]
+        );
         $badges = [
             ['Loans up to ₹4 Lakhs', '≤ ₹4L', '4 ലക്ഷം വരെ'],
             ['Loans above ₹4 Lakhs up to ₹8 Lakhs', '₹4L – ₹8L', '4 – 8 ലക്ഷം'],

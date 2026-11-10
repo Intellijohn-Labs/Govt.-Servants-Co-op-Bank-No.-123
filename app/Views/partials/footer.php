@@ -15,7 +15,7 @@ $dicgcShown = setting('legal.entity_type') === 'licensed_bank'
       <div class="col-lg-4 col-md-12">
         <div class="footer-brand">
           <div class="brand-icon-box"><i class="fa-solid fa-building-columns"></i></div>
-          <div class="fw-bold text-white fs-5 lh-sm"><?= e(setting('legal.approved_public_name')) ?></div>
+          <div class="fw-bold text-white fs-5 lh-sm"><?= e(bank_name()) ?></div>
         </div>
         <p class="small opacity-75 mb-3"><?= e(setting('tagline')) ?></p>
 

@@ -59,7 +59,7 @@ return [
     'tenure' => 'Tenure / Term',
     'general_public' => 'General Public',
     'senior_citizens' => 'Senior Citizens',
-    'rates_disclaimer' => 'Indicative only; subject to society rules, RBI guidelines, and change without prior notice.',
+    'rates_disclaimer' => 'Indicative only; subject to the Board’s decisions and bank rules, and may change without prior notice.',
     'effective_from' => 'Effective from',
     'view_full_rates' => 'View Comprehensive Rate Schedule',
 

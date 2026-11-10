@@ -2,7 +2,7 @@
   <div>
     <h2 class="fw-bold mb-1">Administrative Control Center</h2>
     <p class="text-muted small mb-0">
-      Managing: <span class="badge bg-primary text-white"><?= e(setting('legal.approved_public_name')) ?></span> (Client: <code><?= e(client_slug()) ?></code>)
+      Managing: <span class="badge bg-primary text-white"><?= e(bank_name()) ?></span> (Client: <code><?= e(client_slug()) ?></code>)
     </p>
   </div>
   <div class="d-flex gap-2">

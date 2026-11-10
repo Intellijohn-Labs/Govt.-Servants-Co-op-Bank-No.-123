@@ -13,7 +13,7 @@
         <tbody>
           <tr>
             <th class="bg-light" style="width: 35%;">Approved Public Name</th>
-            <td class="fw-bold text-primary"><?= e(setting('legal.approved_public_name')) ?></td>
+            <td class="fw-bold text-primary"><?= e(bank_name()) ?></td>
           </tr>
           <tr>
             <th class="bg-light">Entity Classification</th>

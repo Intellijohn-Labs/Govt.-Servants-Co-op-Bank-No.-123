@@ -51,6 +51,8 @@
           <li class="mb-2"><i class="fa-solid fa-trophy text-warning me-2" aria-hidden="true"></i><?= __('Best Employees Society (Taluk level, consecutively)', 'മികച്ച എംപ്ലോയീസ് സംഘം (താലൂക്ക് തലത്തിൽ തുടർച്ചയായി)') ?></li>
           <li class="mb-2"><i class="fa-solid fa-medal text-warning me-2" aria-hidden="true"></i><?= __('1st and 2nd positions at District level since 2020-21', '2020-21 വർഷം മുതൽ ജില്ലാതലത്തിൽ ഒന്നും രണ്ടും സ്ഥാനങ്ങൾ') ?></li>
           <li class="mb-2"><i class="fa-solid fa-certificate text-warning me-2" aria-hidden="true"></i><?= __('Class 1 Bank (from August 2021)', 'ക്ലാസ്സ് 1 ബാങ്ക് (2021 ആഗസ്റ്റ് മുതൽ)') ?></li>
+          <li class="mb-2"><i class="fa-solid fa-percent text-warning me-2" aria-hidden="true"></i><?= __('25% dividend consistently distributed to members', 'അംഗങ്ങൾക്ക് 25% ഡിവിഡൻഡ് തുടർച്ചയായി നൽകുന്നു') ?></li>
+          <li class="mb-2"><i class="fa-solid fa-solar-panel text-success me-2" aria-hidden="true"></i><?= __('20-KW solar power system installed: an eco-friendly green bank', '20-KW സൗരോർജ്ജ പാനലുകൾ: ഹരിത ബാങ്ക്') ?></li>
         </ul>
         <div class="mt-3 p-3 bg-light rounded-3 border">
           <div class="fw-bold text-dark mb-1"><i class="fa-solid fa-hand-holding-heart text-danger me-2" aria-hidden="true"></i><?= __('Social Commitment', 'സാമൂഹിക പ്രതിബദ്ധത') ?></div>
@@ -67,19 +69,34 @@
         </h5>
         <div class="border-start border-2 border-primary ps-3 ms-2 py-2">
           <div class="mb-3">
-            <span class="badge bg-primary">~25 <?= __('yrs', 'വർഷം') ?></span>
-            <div class="fw-bold text-dark mt-1"><?= __('Continuous Profit', 'തുടർച്ചയായ ലാഭം') ?></div>
-            <div class="small text-muted"><?= __('Operating continuously at a profit for about 25 years.', 'ഏകദേശം 25 വർഷമായി തുടർച്ചയായി ലാഭത്തിൽ പ്രവർത്തിക്കുന്നു.') ?></div>
+            <span class="badge bg-primary">1920</span>
+            <div class="fw-bold text-dark mt-1"><?= __('Founded', 'സ്ഥാപിതം') ?></div>
+            <div class="small text-muted"><?= __('Founded (Malayalam year 1095) by about twenty government employees of Paravur Taluk.', 'പറവൂർ താലൂക്കിലെ ഇരുപതോളം സർക്കാർ ജീവനക്കാർ ചേർന്ന് സ്ഥാപിച്ചു (മലയാള വർഷം 1095).') ?></div>
+          </div>
+          <div class="mb-3">
+            <span class="badge bg-primary">1985</span>
+            <div class="fw-bold text-dark mt-1"><?= __('Upgraded to Class IV', 'ക്ലാസ്സ് IV') ?></div>
+            <div class="small text-muted"><?= __('Upgraded to Class IV on 01/07/1985.', '01/07/1985 മുതൽ ക്ലാസ്സ് IV.') ?></div>
+          </div>
+          <div class="mb-3">
+            <span class="badge bg-primary">2000</span>
+            <div class="fw-bold text-dark mt-1"><?= __('Own building', 'സ്വന്തം കെട്ടിടം') ?></div>
+            <div class="small text-muted"><?= __('Moved to its own building on 31/01/2000.', '31/01/2000 മുതൽ സ്വന്തം കെട്ടിടത്തിൽ പ്രവർത്തനം.') ?></div>
+          </div>
+          <div class="mb-3">
+            <span class="badge bg-primary">2001</span>
+            <div class="fw-bold text-dark mt-1"><?= __('Upgraded to Class II', 'ക്ലാസ്സ് II') ?></div>
+            <div class="small text-muted"><?= __('Upgraded to Class II on 01/03/2001.', '01/03/2001 മുതൽ ക്ലാസ്സ് II.') ?></div>
           </div>
           <div class="mb-3">
             <span class="badge bg-primary">2020-21</span>
-            <div class="fw-bold text-dark mt-1"><?= __('District-level Recognition', 'ജില്ലാതല അംഗീകാരം') ?></div>
+            <div class="fw-bold text-dark mt-1"><?= __('District-level recognition', 'ജില്ലാതല അംഗീകാരം') ?></div>
             <div class="small text-muted"><?= __('1st and 2nd positions at District level since 2020-21.', '2020-21 വർഷം മുതൽ ജില്ലാതലത്തിൽ ഒന്നും രണ്ടും സ്ഥാനങ്ങൾ.') ?></div>
           </div>
           <div>
-            <span class="badge bg-success"><?= __('Aug 2021', '2021 ആഗസ്റ്റ്') ?></span>
+            <span class="badge bg-success">Aug 2021</span>
             <div class="fw-bold text-dark mt-1"><?= __('Class 1 Bank', 'ക്ലാസ്സ് 1 ബാങ്ക്') ?></div>
-            <div class="small text-muted"><?= __('Classified as a Class 1 Bank from August 2021.', '2021 ആഗസ്റ്റ് മുതൽ ക്ലാസ്സ് 1 ബാങ്ക്.') ?></div>
+            <div class="small text-muted"><?= __('Upgraded to Class 1 from August 2021.', '2021 ആഗസ്റ്റ് മുതൽ ക്ലാസ്സ് 1 ബാങ്ക്.') ?></div>
           </div>
         </div>
       </div>

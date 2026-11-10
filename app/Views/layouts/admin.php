@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><?= !empty($title) ? e($title) . ' | ' : '' ?><?= e(setting('legal.approved_public_name')) ?> CMS</title>
+  <title><?= !empty($title) ? e($title) . ' | ' : '' ?><?= e(bank_name()) ?> CMS</title>
 
   <!-- Google Fonts: Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -99,7 +99,7 @@
     <div class="sidebar-brand">
       <i class="fa-solid fa-building-columns text-info fa-lg"></i>
       <div>
-        <div class="small fw-bold text-white lh-1"><?= e(setting('legal.approved_public_name')) ?></div>
+        <div class="small fw-bold text-white lh-1"><?= e(bank_name()) ?></div>
         <div class="text-muted" style="font-size: 0.7rem;">Control Center</div>
       </div>
     </div>
